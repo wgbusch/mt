@@ -1,9 +1,0 @@
-\subsection{Conclusiones}
-
-\subsubsection{Analisis Comparativo entre los Algoritmos} \label{analisisComparativo}
-
-La problematica de arbitraje fue resuelta con los algoritmos de Bellman-Ford y Floyd-Warshall como mostramos en las secciones anteriores. Sabemos que la complejidad de Bellman-Ford es $\mathcal{O}(nm)$. Si tenemos en cuenta que en este problema de arbitraje necesitamos el camino minimo entre todo par de nodos, debemos ejecutar el algoritmo otras $`$n' veces, lo cual resulta en una complejidad de $\mathcal{O}(n^{2}m)$. Por otro lado, sabemos que la complejidad de Floyd-Warshall $\mathcal{O}(n^{3})$.
-
-Esto nos dice que Bellman-Ford no tiene un buen caso en grafos completos, que es el caso del arbitraje. Floyd-Warshall no es afectado por grafos completos, pero si por el tamaño del mismo. Esto tiene relevancia dado que la experimentación ejecutada mostraba al algoritmo de Floyd como un claro ganador en tiempo. Es cierto que la implementación de Bellman-Ford no esté en el $\%$100 de su efectividad, pero es de esperar que en un grafo completo, Floyd-Warshall se comporte mejor.
-
-Con respecto a los casos donde puede convenir uno u otro, vimos que ambos pueden ser utilizados para detectar un ciclo negativo. Floyd-Warshall es superior si el arbitraje se encuentra entre los primeros nodos, Bellman-Ford si no lo hay.
