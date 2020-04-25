@@ -1,0 +1,95 @@
+\subsubsection{Recortando ejes}
+El algoritmo de recorte recibe cuatro parámetros:
+\begin{itemize}
+	\item Un árbol generador mínimo 
+	\item Un valor $\sigma \in \mathbf{R}$ que refleja la cantidad máxima de veces que debe ser superada la desviación estándar de un vecindario por un eje para que este último pueda llegar a ser considerado inconsistente
+	\item Un valor $f \in \mathbf{R}$ que especifica el valor máximo de veces que debe ser superado el promedio de la distancia de los ejes del vecindario por otro para que este último sea considerado inconsistente siempre y cuando cumpla también los requerimientos del punto anterior
+	\item Un valor de profundidad $d \in \mathbf{Z}$ que delimita la distancia máxima a explorar del vecindario de un eje
+\end{itemize}
+
+Nuestro proceso comienza iterando por sobre todas las listas de adyacencia de primer nivel del grafo. Luego, se itera sobre todos los ejes que se encuentren dentro de cada una de ellas. A continuación se decidirá si cada eje es o no consistente según el criterio de consistencia que describe el $paper$ de Zahn \textit{(Graph-Theoretical Methods for Detecting
+and Describing Gestalt Clusters, 1971:72)}. 
+
+\vskip 8pt
+
+Dado que nos encontramos manipulando un árbol, eliminar un eje de esta estructura generaría un bosque con 2 componentes conexas; es decir, esta nueva componente representa la existencia de un cluster distinto. Por esta razón, nos resulta conveniente eliminar aquellos ejes del árbol que sean anormalmente largos en comparación con el resto de los ejes que lo rodean, pues esto sugiere la presencia de un posible \textit{salto entre clusters}. Estas aristas son las consideradas \textbf{inconsistentes} según el paper de \textbf{Charles Zahn} y el algoritmo las eliminará. \\
+A continuación se presenta el pseudo-código del algoritmo de recorte:
+
+\input{sections/clusters/implementacion-recorte-code-prune}
+
+\subsubsubsection{Estudiando los ejes inconsistentes}
+Este algoritmo tiene la función de, dado un eje, un grafo implementado sobre lista de adyacencias y tres parámetros de exploración, determinar si la arista en cuestión es consistente.
+
+\vskip 8pt
+
+El algoritmo logra esto tomando los dos vértices $u, v$ que componen al eje aportado como parámetro y explorando sus vecindarios por separado; es decir, todos los ejes que están cerca de $u$ y luego todos los ejes que están cerca de $v$ (sin contar el mismo eje que los compone) a una profundidad de no más de $d$ aristas. El rejunte de estos ejes es realizado por otro algoritmo que llamaremos \textbf{el recolector de pesos}. De esta manera, se generan dos conjuntos de ejes: el vecindario de $u$ y el vecindario de $v$. A continuación, se calcula la media y la desviación estándar de los pesos de las aristas de ambos conjuntos por separados y proponemos el siguiente criterio: un eje es consistente pertenece al vecindario de $u$ o al vecindario de $v$. Un eje pertenece a un vecindario si cumple las siguientes condiciones al mismo tiempo:
+\begin{enumerate}[a)]
+	\item Ninguno de los dos vecindario es vacío
+	\item La distancia del eje es menor o igual al promedio de distancias del vecindario sumadas con su desviación estándar multiplicadas por un factor $\sigma$
+	\item La distancia del eje es menor o igual al promedio de distancias de vecindario multiplicadas por el factor $f$
+\end{enumerate}
+
+Si ambos vecindarios de un eje son vacíos, significa que el eje en cuestión está uniendo dos vértices que no poseen información de referencia para juzgar su consistencia. En este caso, se decide eliminar el eje y separar ambos vértices en distintos clusters. Por otro lado, las condiciones \textbf{(b)} y \textbf{(c)} utilizan las distancias de los ejes como principal elemento comparativo. El punto \textbf{(b)} sigue el enfoque propuesto por \textbf{Charles Zahn} que consiste en delimitar las dimensiones de un eje a través de la desviación estandar de uno de sus vecindarios multiplicado por el factor $\sigma$ (que generalmente es $3$) mas el promedio de distancias del mismo vecindario. En un principio, nuestro algoritmo sólo disponía de las condiciones \textbf{(a)} y \textbf{(b)}, hasta que comenzaron a aparecer casos bordes donde ejes muy largos sobrevivían el recorte cuando no debían. La razón se encontraba en la cantidad de ejes inconsistentes dentro del vecindario de un eje. De existir un vecino lo suficientemente grande como para opacar la inconsistencia de la arista en análisis, se podían llegar a producir falsos negativos a la hora de concluir la inconsistencia del eje en cuestión. Es por esto que además se decidió agregar la condición \textbf{(c)} para atajar estos casos.
+
+A continuación se presenta el pseudo-código de la función en cuestión:
+\input{sections/clusters/implementacion-recorte-code-inconsistent}
+
+\subsubsubsection{Recolección de pesos}
+El algoritmo de recolección de pesos es el encargado de realizar la exploración sobre el vecindario de un vértice con una profundidad parametrizada $d$ y agregar el peso de cada eje encontrado a una lista para luego retornarla. El método es invocado con la lista de adyacencias, un nodo $v$, un nodo padre $p$ y la profundidad $d$. Como puede ser apreciado en el pseudo-código de la función de cálculo de la consistencia de un eje $e$, este recolector es invocado dos veces, o sea una para cada vértice del eje $e$. La primera invocación lo hace con el parámetro $v=e.v$ y $p=e.u$. El algoritmo itera sobre cada vértice $u$ vecino al nodo $v$ y siempre y cuando $u \neq p$, agrega el peso del eje $u–v$ a la lista de acumulación. A continuación, si $d \neq 1$ – o sea si debo seguir profundizando la exploración del vecindario –, uno al conjunto de pesos la recursión invocada con el mismo grafo, el siguiente nodo $s$ definido como el vértice extremo a $v$, el nodo $v$ como padre y la profundidad $d$ decrementada en $1$ como parámetros.
+
+\vskip 8pt
+
+De esta manera, se logran obtener los pesos de todos ejes a una profundidad $d$ de un vértice $v$ sin contar el peso del eje formado por los nodos $v–p$. La complejidad de este algoritmo es fácilmente demostrable, pues en esencia es un \textbf{Depth First Search} que inicia con el nodo parámetro $p$ como \textbf{vértice cubierto} y la condición de cobertura es justamente que ningún vértice sea el padre $p$ para contabilizar un eje. Además, como el grafo se trata de un árbol, no es necesario mantener un conjunto de vértices cubiertos pues no hay ciclos por lo tanto sobre cada vértice sólo va a haber uno que ya haya sido visitado y este es el ya conocido vértice padre $p$. En conclusión, las complejidades de este algoritmo son las mismas que la de \textbf{DFS}: $\Theta(|V| + |E|)$ temporal y $\mathcal{O}(|V|)$ espacial.
+
+% TODO: ver si la complejidad es asi porque nosotros admeas estamos haciendo como un push de distancias en el medio!!!!!!!
+\input{sections/clusters/implementacion-recorte-code-collect}
+
+\subsubsubsection{Eliminación de ejes inconsistentes}
+La remoción de las aristas inconsistentes se hace a través de la función \textbf{delete_edge} que toma una lista de ejes (que corresponde a un vértice en una lista de adyacencias) y el eje a eliminar en cuestión. El funcionamiento del algoritmo es bastante sencillo, pues esencialmente es una iteración sobre todos los ejes de la lista, es decir, es lineal sobre la cantidad de ejes en la secuencia de ejes y luego una remoción por índice que en la implementación también es ejecutada linealmente sobre la cantidad de ejes que le siguen en la lista al elemento a eliminar, dando una complejidad total de $\mathcal{O}(|ejes|)$. Se puede concluir que, para cualquier lista de ejes del grafo $G$, la complejidad de la función será $\mathcal{O}(\triangle(G))$, con $\triangle(G)$ siendo el grado máximo de $G$, es decir, la cantidad máxima de ejes que hay conectados a un vértice.
+
+% TODO: chequear que la complejidad de delete sea esta. especificamente que sea lineal + lineal = lineal en el tema del erase
+\input{sections/clusters/implementacion-recorte-code-delete}
+
+\subsubsubsection{Algoritmos de promedio y desviación estándar}
+Estos algoritmos son utilizados a la hora de calcular el promedio y la desviación estándar del vecindario de un vértice $v$ calculado mediante el algoritmo de \textbf{recolección de ejes}. Las complejidades de estos algoritmos son lineales en el tamaño de los vecindarios. El tamaño de un vecindario está acotado superiormente por su profundidad y el grado máximo del grafo en cuestión, sabemos que como mucho un vértice tendrá $\triangle(G)$ vértices conectados y lo mismo se cumple para cada uno de ellos, por lo tanto, como mucho el tamaño de un vecindario $V'$ cualquiera de un grafo $G=(V, E)$ será acotado por:
+
+\vskip 8pt
+
+$$|V'| \leq \sum_{i=1}^{d}\triangle(G)^i = \frac{1-\triangle(G)^{d+1}}{1-\triangle(G)}-1 \leq |V|$$
+\begin{center}
+(por propiedades de series geométricas)
+\end{center}
+
+\vskip 8pt
+
+Se puede concluir que la complejidad de los algoritmos de cálculo del promedio y desviación estándar pertenecen a la clase $\mathcal{O}(|V|)$. A continuación se presentan los pseudo-códigos de las respectivas soluciones:
+
+
+\input{sections/clusters/implementacion-recorte-code-stdev}
+\input{sections/clusters/implementacion-recorte-code-media}
+
+\subsubsection{Algoritmo de clusterización}
+
+El algoritmo final de clusterizacion tendria esta pinta:
+
+\input{sections/clusters/implementacion-algoritmo-final.tex}
+
+La complejidad del algoritmo de clusterización a nivel macro es dada por la suma de las siguientes subcomplejidades:
+\begin{itemize}
+	\item El algoritmo de búsqueda de un Árbol Generador Mínimo (Kruskal o Prim) en $\mathcal{O}(n + m*log(n))$
+	\item El recorte de ejes (que se realiza dos veces con diferentes parámetros para mejorar la precisión de la clusterización) en $\mathcal{O}(m*(n + \triangle(G)))$, con $\triangle(G)$ acotable por $n$
+	\item La búsqueda de componentes conexas sobre el resultado del algoritmo de recorte en $\mathcal{O}(n)$
+\end{itemize}
+
+Sea $C$ el algoritmo de clusterización, y teniendo en cuenta que $m = \mathcal{O}(n^2)$  se concluye que la complejidad de $C$ es:
+
+\begin{align}
+C  &= \mathcal{O}(n + m*log(n)) + \mathcal{O}(m*(n + \triangle(G))) + \mathcal{O}(n) \\
+   &= \mathcal{O}(n) + \mathcal{O}(m*log(n)) + \mathcal{O}(m*(n + \triangle(G))) + \mathcal{O}(n) \\
+   &= 2*\mathcal{O}(n) + \mathcal{O}(m*log(n)) + \mathcal{O}(m*(n + \triangle(G))) \\
+   &= 2*\mathcal{O}(n) + \mathcal{O}(m*log(n)) + \mathcal{O}(m*(2n)) \\
+   &= \mathcal{O}(m*(2n)) \\
+   &= \mathcal{O}(m*n) \\
+   &= \mathcal{O}(n^2*n) \\
+   &= \mathcal{O}(n^3) \\
+\end{align}

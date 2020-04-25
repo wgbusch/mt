@@ -1,0 +1,20 @@
+\subsection{Resolviendo el problema}
+% kruskal
+% kruskal con pc
+% prim
+
+
+\subsubsection{Armando un grafo completo}
+Armar un grafo completo, dada una lista de nodos, consistirá en dar $\forall v,w \in lista$ el eje ${v,w}$
+
+\vskip 8pt
+
+\input{sections/clusters/implementacion-armado-grafo.tex}
+
+\subsubsection{Algoritmos de AGM}
+
+Para aplicar los algoritmos de Kruskal y Prim, se debe proveer un grafo conexo con peso asignado a las aristas. En nuestro caso, como construimos un grafo completo, que es conexo porque cada vértice es adyacente con todos los demás, y además el peso son las distancias euclidianas de los puntos, entonces se verifica la precondición de Kruskal y Prim. \\
+Para la implementación de Kruskal, se implementará un Union Disjoint Set sobre un árbol para separar las componentes conexas durante la iteración, con \textit{path compression} y sin, y el ordenamiento de los ejes será con un algoritmo de orden $O(n + m log n)$, por lo que se espera la complejidad de la ejecución de Kruskal sea $O(n + mlogn)$ siendo $m$ el cardinal de las aristas y $n$ el de los vértices. \\
+Para la implementación de Prim, se dará la una cola de prioridad sobre \textit{heap}, se espera la complejidad de Prim sea $O(n + mlogn)$ siendo $n$ la cantidad de aristas
+
+\input{sections/clusters/implementacion-recorte}

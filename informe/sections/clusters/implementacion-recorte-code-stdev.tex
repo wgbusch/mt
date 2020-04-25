@@ -1,0 +1,19 @@
+\begin{algorithm}[H]
+	\caption{Cálculo de desviación estándar \Comment $\Theta(|pesos|)$}
+	\begin{algorithmic}[1]
+		\Function{calculateStdev}{$Lista<\mathbf{R}> pesos$}
+		\If{$pesos$ es vacío}
+		\State \Return $0$
+		\EndIf
+		\Statex
+		\State $promedio \in \mathbf{R} \gets $ \textbf{calcularPromedio}$(pesos)$ \Comment $\Theta(|pesos|)$
+		\State $varianza \in \mathbf{R} \gets 0$
+		\Statex
+		\For{$x \in pesos$} \Comment $\Theta(|pesos|)$
+		\State $varianza \gets varianza + (x - promedio)^2$
+		\EndFor
+		\Statex
+		\State \Return $\sqrt{\frac{varianza}{|pesos|}}$
+		\EndFunction
+	\end{algorithmic}
+\end{algorithm}

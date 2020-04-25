@@ -1,0 +1,16 @@
+\begin{algorithm}[H]
+\caption{Clusterización de puntos cartesianos}
+\begin{algorithmic}[1]
+\Function{clusterizar}{Vector $points$} \Comment $\mathcal{O}(n^2)$
+	\State Lista ejes $\gets construirEjes(points)$ \Comment $\mathcal{O}(n^2)$
+	\State Grafo AGM $\gets calcularAGM(points)$ \Comment $\mathcal{O}(n + mlog(n))$
+	\State prune_edges(AGM) \Comment $\mathcal{O}(m*(n + \triangle(G)))$
+	\State Lista clusters $\gets findClusters(AGM)$ \Comment $\mathcal{O}(n)$
+	\State \Return $\_clusters$
+\EndFunction
+\end{algorithmic}
+\end{algorithm}
+
+Donde findClusters es una función que simplemente recorre las componentes conexas con union disjoint set, como hace el algoritmo de Kruskal. 
+
+\vskip 8pt

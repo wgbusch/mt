@@ -1,0 +1,24 @@
+\begin{algorithm}[H]
+	\caption{Consistencia de un eje \Comment $\mathcal{O}(|grafo|)$}
+	\begin{algorithmic}[1]
+		\Function{edgeIsInconsistent}{Grafo $grafo$, Eje $e$,$\sigma \in \mathbf{R}$, $f \in \mathbf{R}$,$d \in \mathbf{Z}$}
+		\State $v\_pesos \gets$ \textbf{recolectarPesos}$(grafo, e.v, e.u, d)$ \Comment $\Theta(|V| + |E|)$
+		\State $u\_pesos \gets$ \textbf{recolectarPesos}$(grafo, e.v, e.u, d)$ \Comment $\Theta(|V| + |E|)$
+		\Statex
+		\State $v\_promedio \in \mathbf{R} \gets$ \textbf{calcularPromedio}$(v\_pesos)$ \Comment $\mathcal{O}(|V|)$
+		\State $u\_promedio \in \mathbf{R} \gets$ \textbf{calcularPromedio}$(u\_pesos)$ \Comment $\mathcal{O}(|V|)$
+		\Statex
+		\State $v\_stdev \in \mathbf{R} \gets$ \textbf{calcularDesviacionEstandar}$(v\_pesos)$ \Comment $\mathcal{O}(|V|)$
+		\State $u\_stdev \in \mathbf{R} \gets$ \textbf{calcularDesviacionEstandar}$(u\_pesos)$ \Comment $\mathcal{O}(|V|)$
+		\Statex
+		\State\textbf{bool} $v\_esConsistente \gets v\_pesos \neq \varnothing \land e.distance \leq v\_promedio + \sigma * v\_stdev \land e.distance \leq v\_promedio * f$
+		\State\textbf{bool} $u\_esConsistente \gets v\_pesos \neq \varnothing \land e.distance \leq u\_promedio + \sigma * u\_stdev \land e.distance \leq u\_promedio * f$
+		\Statex
+		\If{$v\_pesos = \varnothing \land u\_pesos = \varnothing$}
+		\State \Return $false$
+		\EndIf
+		\Statex
+		\State \Return $\neg(v\_esConsistente \lor u\_esConsistente)$
+		\EndFunction
+	\end{algorithmic}
+\end{algorithm}

@@ -1,0 +1,61 @@
+\subsection{Bellman-Ford}
+\subsubsubsection{Resolución} \label{res-bell}
+Para resolver arbitraje usando Bellman Ford (\textbf{BF}) utilizamos una variación (\textbf{BF'}) del algoritmo clásico. \textbf{BF'} considera la \textit{longitud} de un camino como el \textit{producto} de sus aristas, y busca \textit{maximizar} (y no minimizar) la longitud. Utilizamos esta variación ya que es la más natural dada el input que recibimos: si queremos pasar de un activo $i$ a un activo $j$, tenemos que  multiplicar por $c_{i,j}$ y no sumar. En esta variación del algoritmo, un arbitraje será un ciclo tal que el producto de sus aristas sea estrictamente mayor a $1$.
+
+\begin{algorithm}[H]
+\caption{Find arbitrage}
+\begin{algorithmic}[1]
+\Function{Bellman-Ford'}{$vector<Nodo> nodos$, $vector<Eje> ejes$, $Nodo$ $inicial$}
+	\State \textbf{Inicializar}
+	\State $\pi = vector<int>$[$number\_of\_nodes$]
+	\State $predecesor = vector<int>$[$number\_of\_nodes$]
+	\For{$u \in nodos$}
+		\State $\pi(u) = 0$
+		\State $predecesor(u) = -1$
+	\EndFor
+	\State $\pi(inicial) = 1$
+	\Statex								
+	\For{$i=0; i \leq number\_of\_nodes; i++$} 													
+		\For{$e \in ejes$}
+			\If{$\pi(e.terminal) < \pi(e.comienzo) * e.peso$}
+				\State $\pi (e.terminal)=e.comienzo * e.peso$
+				\State $predecesor (e.terminal) = e.comienzo$
+			\EndIf		
+		\EndFor
+	\EndFor
+	\Statex
+	\For{$e \in ejes$} 													
+		\If{$\pi(e.terminal) < \pi(e.comienzo) * e.peso$}
+			\State $vector<int> ciclo = \textbf{reconstruir_arbitraje}$
+			\State \Return $ciclo$
+		\EndIf
+	\EndFor
+	\Statex
+	\State \Return $NO$
+\EndFunction
+\end{algorithmic}
+\end{algorithm}
+
+\subsubsubsection{Justificacion}
+Podemos ensayar una justificación de porqué el algoritmo funciona apoyándonos en el homeomorfismo monótono decreciente $e^{-x} :(\mathbb{R}, +) \longrightarrow (\mathbb{R}_{>0}, .) $ y su inversa $-log(x) : (\mathbb{R}_{>0}, .) \longrightarrow (\mathbb{R}, +)$:
+
+Sea $(G,I)$ tal que $I(w,u) > 0 \forall (w,u)$. Este es el problema original que recibiremos, donde los pesos de las aristas es cuanto cuesta el cambio de un activo a otro. Defino $\tilde{G} = (G, -log(I))$, osea aplico $-log$ a los pesos. Sea $\tilde{\pi}$ una solución clásica de $BF$. Notar que la condición de que $\tilde{G}$ no tenga ciclos de longitud negativa alcanzables desde $v$ es equivalente a que $G$ no tenga ciclos de \textit{longitud} (productoria) estrictamente mayor a 1 alcanzables desde 1 (es decir, que haya un arbitraje). 
+
+Sea ahora $C$ un camino de $v$ a $u_0$. Entonces por def. de solución de $BF$,
+
+$$ \tilde{\pi}(u_0) \leq l(C) = \sum \tilde{I} (a_i, a_{i+1}) = - \sum log(I(a_i, a_{i+1}))$$
+
+Aplicando $e^{-x}$,
+$$ e^{-\tilde{\pi}(u_0)} \geq e^{ - ( - \sum logI(a_i, a_{i+1}) )} = e^{ \sum logI(a_i, a_{i+1})}$$
+Si defino $\pi$ como $e^{-\tilde{\pi}}$, tengo que
+$$\pi (u_0) \geq \prod I(a_i , a_{i+1})$$
+
+Es decir, obtenemos una solución que maximiza los productos. Esto demuestra que pudimos haber hecho $BF$ tradicional en $(G, -log(I))$, y al resultado aplicarle $e^{-x}$ (coordenada a coordenada) para obtener una solución del problema de maximizar con el producto. Por otra parte, si tomamos el algoritmo de $BF'$ como aparece en el pseudo-código y ''aplicamos'' la función $-log$, usando que $"-log(0)" = +\infty$ y que el resultado de aplicar $-log$ a 
+$$\pi(e.terminal) < \pi(e.comienzo) * e.peso$$
+es
+\begin{align}
+    -log(\pi(e.terminal)) &\geq -log(\pi(e.comienzo)) + - log( e.peso) \\        
+    \tilde{\pi}(e.terminal) &\geq \tilde{\pi}(e.comienzo) + \tilde{\pi}(e.peso)
+\end{align}
+
+Es decir, intuitivamente, podemos transformar el algoritmo modificado ($BF'$) y obtener el BF tradicional, que sabemos que funciona (porque ya lo demostramos). Pero también podemos volver con $e^-x$ y obtener el algoritmo original ($BF'$). Por lo tanto $BF'$ también funciona. Si bien intuitivamente es claro que la correspondencia entre $-log(x) y e^-x$ hace que la modificación del algoritmo funcione, no es formal. Una demostración formal podría hacerse por ejemplo copiando la demostración de $BF$ clásica y reemplazando $+$ por $.$, $<$ por $\geq$ y haciendo los cambios correspondientes.

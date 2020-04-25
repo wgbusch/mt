@@ -1,0 +1,14 @@
+\begin{algorithm}[H]
+	\caption{Algoritmo de recorte \Comment $\mathcal{O}(|E|*(|V| + \triangle(grafo)))$}
+	\begin{algorithmic}[1]
+		\Function{pruneEdges}{$grafo$,$\sigma \in \mathbf{R}$,$f \in \mathbf{R}$,$d \in \mathbf{Z}$}
+		\For{eje $e \in grafo$} \Comment $\mathcal{O}(|E|*(|V| + \triangle(grafo)))$
+		\If{El eje $e$ es inconsistente (utilizando $\sigma, f$ y $d$)} \Comment $\mathcal{O}(|V|)$
+		\State Eliminar el eje $e$ de $grafo$ \Comment $\mathcal{O}(\triangle(grafo))$
+		\EndIf
+		\EndFor
+		\Statex
+		\State \Return $grafo$
+		\EndFunction
+	\end{algorithmic}
+\end{algorithm}

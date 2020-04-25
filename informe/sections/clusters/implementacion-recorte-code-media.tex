@@ -1,0 +1,18 @@
+\begin{algorithm}[H]
+\caption{Cálculo de promedio \Comment $\Theta(|poblacion|)$}
+\begin{algorithmic}[1]
+\Function{calculateMean}{$Lista<\mathbf{R}> poblacion$}
+	\If{$poblacion$ es vacío}
+		\State \Return $0$
+	\EndIf
+	\Statex
+	\State $promedio \in \mathbf{R} \gets 0$
+	\Statex
+	\For{$x \in poblacion$} \Comment $\Theta(|poblacion|)$
+		\State $promedio \gets promedio + x$
+	\EndFor
+	\Statex
+	\State \Return $\frac{promedio}{|poblacion|}$
+\EndFunction
+\end{algorithmic}
+\end{algorithm}

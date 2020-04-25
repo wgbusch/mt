@@ -1,0 +1,45 @@
+\BOOKMARK [1][-]{section.1}{Separando la paja del trigo}{}% 1
+\BOOKMARK [2][-]{subsection.1.1}{Introducci\363n}{section.1}% 2
+\BOOKMARK [3][-]{subsubsection.1.1.1}{Sobre el AGM}{subsection.1.1}% 3
+\BOOKMARK [2][-]{subsection.1.2}{Resolviendo el problema}{section.1}% 4
+\BOOKMARK [3][-]{subsubsection.1.2.1}{Armando un grafo completo}{subsection.1.2}% 5
+\BOOKMARK [3][-]{subsubsection.1.2.2}{Algoritmos de AGM}{subsection.1.2}% 6
+\BOOKMARK [3][-]{subsubsection.1.2.3}{Recortando ejes}{subsection.1.2}% 7
+\BOOKMARK [4][-]{subsubsubsection.1.2.3.1}{Estudiando los ejes inconsistentes}{subsubsection.1.2.3}% 8
+\BOOKMARK [4][-]{subsubsubsection.1.2.3.2}{Recolecci\363n de pesos}{subsubsection.1.2.3}% 9
+\BOOKMARK [4][-]{subsubsubsection.1.2.3.3}{Eliminaci\363n de ejes inconsistentes}{subsubsection.1.2.3}% 10
+\BOOKMARK [4][-]{subsubsubsection.1.2.3.4}{Algoritmos de promedio y desviaci\363n est\341ndar}{subsubsection.1.2.3}% 11
+\BOOKMARK [3][-]{subsubsection.1.2.4}{Algoritmo de clusterizaci\363n}{subsection.1.2}% 12
+\BOOKMARK [2][-]{subsection.1.3}{Experimentaci\363n}{section.1}% 13
+\BOOKMARK [3][-]{subsubsection.1.3.1}{Criterios para evaluaci\363n de ejes}{subsection.1.3}% 14
+\BOOKMARK [4][-]{subsubsubsection.1.3.1.1}{Solo desv\355o est\341ndar}{subsubsection.1.3.1}% 15
+\BOOKMARK [4][-]{subsubsubsection.1.3.1.2}{Solo relaci\363n sobre el eje promedio}{subsubsection.1.3.1}% 16
+\BOOKMARK [4][-]{subsubsubsection.1.3.1.3}{Desv\355o est\341ndar o relaci\363n de eje promedio}{subsubsection.1.3.1}% 17
+\BOOKMARK [4][-]{subsubsubsection.1.3.1.4}{Desv\355o est\341ndar y relaci\363n de eje promedio}{subsubsection.1.3.1}% 18
+\BOOKMARK [4][-]{subsubsubsection.1.3.1.5}{Conclusiones}{subsubsection.1.3.1}% 19
+\BOOKMARK [3][-]{subsubsection.1.3.2}{Kruskal vs Kruskal con path compression}{subsection.1.3}% 20
+\BOOKMARK [4][-]{subsubsubsection.1.3.2.1}{Performance con varios clusters}{subsubsection.1.3.2}% 21
+\BOOKMARK [4][-]{subsubsubsection.1.3.2.2}{Performance con un \372nico cluster}{subsubsection.1.3.2}% 22
+\BOOKMARK [4][-]{subsubsubsection.1.3.2.3}{Evaluaci\363n de cota}{subsubsection.1.3.2}% 23
+\BOOKMARK [3][-]{subsubsection.1.3.3}{Comparacion de Kruskal contra Prim}{subsection.1.3}% 24
+\BOOKMARK [4][-]{subsubsubsection.1.3.3.1}{Conclusiones}{subsubsection.1.3.3}% 25
+\BOOKMARK [1][-]{section.2}{Arbitraje}{}% 26
+\BOOKMARK [2][-]{subsection.2.1}{Introducci\363n a la problem\341tica}{section.2}% 27
+\BOOKMARK [3][-]{subsubsection.2.1.1}{Noci\363n de arbitraje}{subsection.2.1}% 28
+\BOOKMARK [3][-]{subsubsection.2.1.2}{Arbitraje de divisas}{subsection.2.1}% 29
+\BOOKMARK [2][-]{subsection.2.2}{An\341lisis del problema}{section.2}% 30
+\BOOKMARK [3][-]{subsubsection.2.2.1}{Traduciendo a grafos}{subsection.2.2}% 31
+\BOOKMARK [2][-]{subsection.2.3}{Bellman-Ford}{section.2}% 32
+\BOOKMARK [3][-]{subsubsubsection.2.3.0.1}{Resoluci\363n}{subsection.2.3}% 33
+\BOOKMARK [4][-]{subsubsubsection.2.3.0.2}{Justificacion}{subsubsubsection.2.3.0.1}% 34
+\BOOKMARK [2][-]{subsection.2.4}{Floyd-Warshall}{section.2}% 35
+\BOOKMARK [3][-]{subsubsubsection.2.4.0.1}{Resoluci\363n}{subsection.2.4}% 36
+\BOOKMARK [2][-]{subsection.2.5}{Experimentaci\363n}{section.2}% 37
+\BOOKMARK [3][-]{subsubsection.2.5.1}{Experimento gen\351rico}{subsection.2.5}% 38
+\BOOKMARK [4][-]{subsubsubsection.2.5.1.1}{Sin Arbitraje}{subsubsection.2.5.1}% 39
+\BOOKMARK [4][-]{subsubsubsection.2.5.1.2}{\332nico Ciclo de Longitud Variable}{subsubsection.2.5.1}% 40
+\BOOKMARK [3][-]{subsubsection.2.5.2}{Experimento Favorables por Algoritmo}{subsection.2.5}% 41
+\BOOKMARK [4][-]{subsubsubsection.2.5.2.1}{Favorable Bellman-Ford}{subsubsection.2.5.2}% 42
+\BOOKMARK [4][-]{subsubsubsection.2.5.2.2}{Favorable Floyd-Warshall}{subsubsection.2.5.2}% 43
+\BOOKMARK [2][-]{subsection.2.6}{Conclusiones}{section.2}% 44
+\BOOKMARK [3][-]{subsubsection.2.6.1}{Analisis Comparativo entre los Algoritmos}{subsection.2.6}% 45
