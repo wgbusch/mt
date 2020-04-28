@@ -1,45 +1,58 @@
 {
-    ".deps_version": 2,
+    ".deps_version": 2, 
     "g++ -o ./tp ./main.o ./eliminaciongauss/elimgauss.o ./instancia/instancia.o ./matriz/matriz.o ./wp/wp.o": {
-        ".": "input-5058f1af8388633f609cadb75a75dc9d",
-        "eliminaciongauss": "input-e01f56605e1506ccb89ace0e65d71fba",
-        "eliminaciongauss/elimgauss.o": "input-fa3a228db74980e9094113c5d058b51a",
-        "instancia": "input-5da9a8f4c5c488db4f9402162cf1d468",
-        "instancia/instancia.o": "input-f598835373b0e8aeff6ece67cc593e9f",
-        "main.o": "input-4b0e01576383ce6bd8c5562fcd02521c",
-        "matriz": "input-72ef5102ed2a0045bf4dadb75c5194df",
-        "matriz/matriz.o": "input-7ac5c4f7cd2f43c1ef8c995ff3a104e8",
-        "tp": "input-904aa8ceb03592d15e76873736fc03a2",
-        "wp": "input-b6ddd84a9cc636257258701ca934e763",
+        ".": "input-5058f1af8388633f609cadb75a75dc9d", 
+        "eliminaciongauss": "input-e01f56605e1506ccb89ace0e65d71fba", 
+        "eliminaciongauss/elimgauss.o": "input-fa3a228db74980e9094113c5d058b51a", 
+        "instancia": "input-5da9a8f4c5c488db4f9402162cf1d468", 
+        "instancia/instancia.o": "input-f598835373b0e8aeff6ece67cc593e9f", 
+        "main.o": "input-4b0e01576383ce6bd8c5562fcd02521c", 
+        "matriz": "input-72ef5102ed2a0045bf4dadb75c5194df", 
+        "matriz/matriz.o": "input-7ac5c4f7cd2f43c1ef8c995ff3a104e8", 
+        "tp": "input-904aa8ceb03592d15e76873736fc03a2", 
+        "wp": "input-b6ddd84a9cc636257258701ca934e763", 
         "wp/wp.o": "input-1d740026599059ea1227dcc3a8664966"
-    },
+    }, 
+    "g++ -o ./tp ./main.o ./wp/wp.o ./matriz/matriz.o ./eliminaciongauss/elimgauss.o ./instancia/instancia.o": {
+        ".": "input-5058f1af8388633f609cadb75a75dc9d", 
+        "eliminaciongauss": "input-e01f56605e1506ccb89ace0e65d71fba", 
+        "eliminaciongauss/elimgauss.o": "input-fa3a228db74980e9094113c5d058b51a", 
+        "instancia": "input-5da9a8f4c5c488db4f9402162cf1d468", 
+        "instancia/instancia.o": "input-4771c86a54d9730c65a1cdce0bf42e1c", 
+        "main.o": "input-fdfb2db8f597d76932dcc89100c14a08", 
+        "matriz": "input-72ef5102ed2a0045bf4dadb75c5194df", 
+        "matriz/matriz.o": "input-f749b1a4a1de972e71023f3952907398", 
+        "tp": "input-f353c24df457181424c472bd6b9dcb19", 
+        "wp": "input-b6ddd84a9cc636257258701ca934e763", 
+        "wp/wp.o": "input-b0559bedafd59a5f0180d4ce98ca4dea"
+    }, 
     "g++ -std=c++11 -O2 -c ./eliminaciongauss/elimgauss.cpp -o ./eliminaciongauss/elimgauss.o": {
-        ".": "input-5058f1af8388633f609cadb75a75dc9d",
-        "eliminaciongauss": "input-e01f56605e1506ccb89ace0e65d71fba",
-        "eliminaciongauss/elimgauss.cpp": "input-55e5350ac81159642201b025acef87e9",
+        ".": "input-5058f1af8388633f609cadb75a75dc9d", 
+        "eliminaciongauss": "input-e01f56605e1506ccb89ace0e65d71fba", 
+        "eliminaciongauss/elimgauss.cpp": "input-55e5350ac81159642201b025acef87e9", 
         "eliminaciongauss/elimgauss.o": "input-fa3a228db74980e9094113c5d058b51a"
-    },
+    }, 
     "g++ -std=c++11 -O2 -c ./instancia/instancia.cpp -o ./instancia/instancia.o": {
-        ".": "input-5058f1af8388633f609cadb75a75dc9d",
-        "instancia": "input-5da9a8f4c5c488db4f9402162cf1d468",
-        "instancia/instancia.cpp": "input-8837b9d7e08f5e73fd12391f4f5ce02e",
-        "instancia/instancia.o": "input-f598835373b0e8aeff6ece67cc593e9f"
-    },
+        ".": "input-5058f1af8388633f609cadb75a75dc9d", 
+        "instancia": "input-5da9a8f4c5c488db4f9402162cf1d468", 
+        "instancia/instancia.cpp": "input-8245f335076a4b477e459f1264f213c4", 
+        "instancia/instancia.o": "input-4771c86a54d9730c65a1cdce0bf42e1c"
+    }, 
     "g++ -std=c++11 -O2 -c ./main.cpp -o ./main.o": {
-        ".": "input-5058f1af8388633f609cadb75a75dc9d",
-        "main.cpp": "input-4f98cecce87c9565e114cdb1100876be",
-        "main.o": "input-4b0e01576383ce6bd8c5562fcd02521c"
-    },
+        ".": "input-5058f1af8388633f609cadb75a75dc9d", 
+        "main.cpp": "input-d54ce23ef1e94f82b021165ecb4df349", 
+        "main.o": "input-fdfb2db8f597d76932dcc89100c14a08"
+    }, 
     "g++ -std=c++11 -O2 -c ./matriz/matriz.cpp -o ./matriz/matriz.o": {
-        ".": "input-5058f1af8388633f609cadb75a75dc9d",
-        "matriz": "input-72ef5102ed2a0045bf4dadb75c5194df",
-        "matriz/matriz.cpp": "input-26868f0b9be6089e49350cf02f14e467",
-        "matriz/matriz.o": "input-7ac5c4f7cd2f43c1ef8c995ff3a104e8"
-    },
+        ".": "input-5058f1af8388633f609cadb75a75dc9d", 
+        "matriz": "input-72ef5102ed2a0045bf4dadb75c5194df", 
+        "matriz/matriz.cpp": "input-8c4463fff589b9f23772c9fb2aa91275", 
+        "matriz/matriz.o": "input-f749b1a4a1de972e71023f3952907398"
+    }, 
     "g++ -std=c++11 -O2 -c ./wp/wp.cpp -o ./wp/wp.o": {
-        ".": "input-5058f1af8388633f609cadb75a75dc9d",
-        "wp": "input-b6ddd84a9cc636257258701ca934e763",
-        "wp/wp.cpp": "input-3cc67b0b1be6b8c104b289f6050776b3",
-        "wp/wp.o": "input-1d740026599059ea1227dcc3a8664966"
+        ".": "input-5058f1af8388633f609cadb75a75dc9d", 
+        "wp": "input-b6ddd84a9cc636257258701ca934e763", 
+        "wp/wp.cpp": "input-8930743052dbf035cf36e3e2780f599d", 
+        "wp/wp.o": "input-b0559bedafd59a5f0180d4ce98ca4dea"
     }
 }
