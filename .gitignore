@@ -4,3 +4,5 @@
 **/.dps
 src/.idea
 src/cmake-build-debug/
+src/scripts/__pycache__
+.deps
