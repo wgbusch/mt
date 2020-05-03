@@ -115,6 +115,22 @@ int main(int argc, char *argv[]) {
         archivoTiempos.close();
 
     }
+    // metodo WPL
+    if (strcmp(argv[3], "3") == 0) {
+        cout << "Corriendo Metodo WPL..." << endl;
+
+        gettimeofday(&startWP, NULL);
+        respuesta = wpl(ins);
+        gettimeofday(&endWP, NULL);
+        elapsed_seconds = endWP.tv_sec - startWP.tv_sec;
+        elapsed_useconds = endWP.tv_usec - startWP.tv_usec;
+        double timeWP =  ((elapsed_seconds) * 1000 + elapsed_useconds / 1000.0) + 0.5;
+        archivoTiempos.open("tiempos/tiempos2.txt", std::ofstream::out | std::ofstream::app);
+        archivoTiempos <<totalEquipos << " "  << ins->getTotalPartidos() << " " << timeWP<< endl;
+        archivoTiempos.close();
+
+    }
+
 
     // CALCULATE ELO
     if (strcmp(argv[3], "2") == 0) {
