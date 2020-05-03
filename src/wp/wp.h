@@ -6,5 +6,6 @@
 using namespace std;
 
 double* wp(instancia*);
+double* wpl(instancia*);
 
 #endif
