@@ -1,0 +1,317 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+AlwaysRunner	src/scripts/fabricate.py	/^class AlwaysRunner(Runner):$/;"	c
+An lisis cualitativo	docs/enunciado/tp1.tex	/^\\subsection*{Análisis cualitativo}$/;"	b
+An lisis cuantitativo	docs/enunciado/tp1.tex	/^\\subsection*{Análisis cuantitativo}$/;"	b
+AtimesRunner	src/scripts/fabricate.py	/^class AtimesRunner(Runner):$/;"	c
+Builder	src/scripts/fabricate.py	/^class Builder(object):$/;"	c
+CC	src/Makefile	/^CC=g++$/;"	m
+CFLAGS	src/Makefile	/^CFLAGS=-c$/;"	m
+CMM	src/instancia/instancia.h	/^        Matriz * CMM;$/;"	m	class:instancia
+Casos de test	docs/enunciado/tp1.tex	/^\\subsection*{Casos de test}$/;"	b
+Conjuntos de datos	docs/enunciado/tp1.tex	/^\\subsection*{Conjuntos de datos}$/;"	b
+Contexto y motivaci n	docs/enunciado/tp1.tex	/^\\section*{Contexto y motivación}$/;"	s
+El problema	docs/enunciado/tp1.tex	/^\\section*{El problema}$/;"	s
+Enunciado	docs/enunciado/tp1.tex	/^\\section*{Enunciado}$/;"	s
+Enunciado	docs/presentacion/presentacion.tex	/^\\section{Enunciado}$/;"	s
+ExecutionError	src/scripts/fabricate.py	/^class ExecutionError(Exception):$/;"	c
+Experimentaci n	docs/enunciado/tp1.tex	/^\\section*{Experimentación}$/;"	s
+FAT_atime_resolution	src/scripts/fabricate.py	/^FAT_atime_resolution = 24*60*60     # resolution on FAT filesystems (seconds)$/;"	v
+FAT_mtime_resolution	src/scripts/fabricate.py	/^FAT_mtime_resolution = 2$/;"	v
+Fechas de entrega	docs/enunciado/tp1.tex	/^\\section*{Fechas de entrega}$/;"	s
+Instancia	src/base.py	/^class Instancia():$/;"	c
+L	src/matriz/matriz.h	/^        Matriz * L;$/;"	m	class:Matriz
+Matriz	src/matriz/matriz.cpp	/^Matriz::Matriz(int _n,int _m) {$/;"	f	class:Matriz
+Matriz	src/matriz/matriz.h	/^class Matriz {$/;"	c
+MultiprocessingModule	src/scripts/fabricate.py	/^    class MultiprocessingModule(object):$/;"	c
+NB	src/scripts/fabricate.py	/^import threading # NB uses old camelCase names for backward compatibility$/;"	i
+NTFS_atime_resolution	src/scripts/fabricate.py	/^NTFS_atime_resolution = 0.0002048   # resolution on NTFS filesystems (seconds)$/;"	v
+NTFS_mtime_resolution	src/scripts/fabricate.py	/^NTFS_mtime_resolution = 0.0002048   #  is actually 0.1us but python's can be$/;"	v
+Par metros y formato de archivos	docs/enunciado/tp1.tex	/^\\section*{Parámetros y formato de archivos}$/;"	s
+PathError	src/scripts/fabricate.py	/^class PathError(Exception):$/;"	c
+PickleJson	src/scripts/fabricate.py	/^        class PickleJson:$/;"	c
+Puntos opcionales	docs/enunciado/tp1.tex	/^\\subsection*{Puntos opcionales}$/;"	b
+Runner	src/scripts/fabricate.py	/^class Runner(object):$/;"	c
+RunnerUnsupportedException	src/scripts/fabricate.py	/^class RunnerUnsupportedException(Exception):$/;"	c
+SmartRunner	src/scripts/fabricate.py	/^class SmartRunner(Runner):$/;"	c
+StraceProcess	src/scripts/fabricate.py	/^class StraceProcess(object):$/;"	c
+StraceRunner	src/scripts/fabricate.py	/^class StraceRunner(Runner):$/;"	c
+Tp1TestCase	src/scripts/tptests.py	/^class Tp1TestCase(unittest.TestCase):$/;"	c
+U	src/matriz/matriz.h	/^        Matriz * U;$/;"	m	class:Matriz
+_Groups	src/scripts/fabricate.py	/^class _Groups(object):$/;"	c
+__Gauss_H_INCLUDED__	src/eliminaciongauss/elimgauss.h	/^#define __Gauss_H_INCLUDED__ /;"	d
+__Matriz_H_INCLUDED__	src/matriz/matriz.h	/^#define __Matriz_H_INCLUDED__ /;"	d
+__all__	src/scripts/fabricate.py	/^__all__ = ['setup', 'run', 'autoclean', 'main', 'shell', 'fabricate_version',$/;"	v
+__call__	src/scripts/fabricate.py	/^    def __call__(self, *args, **kwargs):$/;"	m	class:AlwaysRunner	file:
+__call__	src/scripts/fabricate.py	/^    def __call__(self, *args, **kwargs):$/;"	m	class:AtimesRunner	file:
+__call__	src/scripts/fabricate.py	/^    def __call__(self, *args, **kwargs):$/;"	m	class:Runner	file:
+__call__	src/scripts/fabricate.py	/^    def __call__(self, *args, **kwargs):$/;"	m	class:SmartRunner	file:
+__call__	src/scripts/fabricate.py	/^    def __call__(self, *args, **kwargs):$/;"	m	class:StraceRunner	file:
+__getattr__	src/scripts/fabricate.py	/^        def __getattr__(self, name):$/;"	m	class:MultiprocessingModule	file:
+__init__	src/base.py	/^    def __init__(self,csvfile,contarEmpates=False,empateSuma=True):$/;"	m	class:Instancia
+__init__	src/scripts/fabricate.py	/^        def __init__(self, val=None):$/;"	m	class:_Groups.value
+__init__	src/scripts/fabricate.py	/^    def __init__(self):$/;"	m	class:_Groups
+__init__	src/scripts/fabricate.py	/^    def __init__(self, afters, do):$/;"	m	class:_after
+__init__	src/scripts/fabricate.py	/^    def __init__(self, asynch, command):$/;"	m	class:_running
+__init__	src/scripts/fabricate.py	/^    def __init__(self, builder):$/;"	m	class:AlwaysRunner
+__init__	src/scripts/fabricate.py	/^    def __init__(self, builder):$/;"	m	class:AtimesRunner
+__init__	src/scripts/fabricate.py	/^    def __init__(self, builder):$/;"	m	class:SmartRunner
+__init__	src/scripts/fabricate.py	/^    def __init__(self, builder, build_dir=None):$/;"	m	class:StraceRunner
+__init__	src/scripts/fabricate.py	/^    def __init__(self, cwd='.', delayed=False):$/;"	m	class:StraceProcess
+__init__	src/scripts/fabricate.py	/^    def __init__(self, group, command, arglist, kwargs):$/;"	m	class:_todo
+__init__	src/scripts/fabricate.py	/^    def __init__(self, runner=None, dirs=None, dirdepth=100, ignoreprefix='.',$/;"	m	class:Builder
+__instancia_H_INCLUDED__	src/instancia/instancia.h	/^#define __instancia_H_INCLUDED__ /;"	d
+__str__	src/scripts/fabricate.py	/^    def __str__(self):$/;"	m	class:StraceProcess	file:
+__version__	src/scripts/fabricate.py	/^__version__ = '1.29.3'$/;"	v
+__wq_H_INCLUDED__	src/wp/wp.h	/^#define __wq_H_INCLUDED__ /;"	d
+_after	src/scripts/fabricate.py	/^class _after(object):$/;"	c
+_age_atimes	src/scripts/fabricate.py	/^    def _age_atimes(self, filetimes):$/;"	m	class:AtimesRunner
+_call_strace	src/scripts/fabricate.py	/^def _call_strace(self, *args, **kwargs):$/;"	f
+_chdir_re	src/scripts/fabricate.py	/^    _chdir_re      = re.compile(r'(?P<pid>\\d+)\\s+chdir\\("(?P<cwd>[^"]*)"\\)')$/;"	v	class:StraceRunner
+_clone_re	src/scripts/fabricate.py	/^    _clone_re      = re.compile(r'(?P<pid_clone>\\d+)\\s+(clone|fork|vfork)\\(.*\\)\\s*=\\s*(?P<pid>\\d*)')$/;"	v	class:StraceRunner
+_creat_re	src/scripts/fabricate.py	/^    _creat_re      = re.compile(r'(?P<pid>\\d+)\\s+creat\\("(?P<name>[^"]*)", .*')$/;"	v	class:StraceRunner
+_do_strace	src/scripts/fabricate.py	/^    def _do_strace(self, args, kwargs, outfile, outname):$/;"	m	class:StraceRunner
+_execve_re	src/scripts/fabricate.py	/^    _execve_re     = re.compile(r'(?P<pid>\\d+)\\s+execve\\("(?P<name>[^"]*)", .*')$/;"	v	class:StraceRunner
+_exit_group_re	src/scripts/fabricate.py	/^    _exit_group_re = re.compile(r'(?P<pid>\\d+)\\s+exit_group\\((?P<status>.*)\\).*')$/;"	v	class:StraceRunner
+_file_times	src/scripts/fabricate.py	/^    def _file_times(self, path, depth):$/;"	m	class:AtimesRunner
+_groups	src/scripts/fabricate.py	/^_groups = _Groups()$/;"	v
+_is_relevant	src/scripts/fabricate.py	/^    def _is_relevant(self, fullname):$/;"	m	class:Builder
+_join_results_handler	src/scripts/fabricate.py	/^    def _join_results_handler(self):$/;"	m	class:Builder
+_kill_re	src/scripts/fabricate.py	/^    _kill_re       = re.compile(r'(?P<pid>\\d+)\\s+killed by.*')$/;"	v	class:StraceRunner
+_match_line	src/scripts/fabricate.py	/^    def _match_line(self, line, processes, unfinished):$/;"	m	class:StraceRunner
+_matching_is_delayed	src/scripts/fabricate.py	/^    def _matching_is_delayed(self, processes, pid, line):$/;"	m	class:StraceRunner
+_mkdir_re	src/scripts/fabricate.py	/^    _mkdir_re      = re.compile(r'(?P<pid>\\d+)\\s+mkdir\\("(?P<name>[^"]*)", .*\\)\\s*=\\s(?P<result>-?[0-9]*).*')$/;"	v	class:StraceRunner
+_open_re	src/scripts/fabricate.py	/^    _open_re       = re.compile(r'(?P<pid>\\d+)\\s+open\\("(?P<name>[^"]*)", (?P<mode>[^,)]*)')$/;"	v	class:StraceRunner
+_parsed_options	src/scripts/fabricate.py	/^_parsed_options = None$/;"	v
+_pool	src/scripts/fabricate.py	/^_pool = None$/;"	v
+_rename_re	src/scripts/fabricate.py	/^    _rename_re     = re.compile(r'(?P<pid>\\d+)\\s+rename\\("[^"]*", "(?P<name>[^"]*)"\\)')$/;"	v	class:StraceRunner
+_results	src/scripts/fabricate.py	/^_results = None$/;"	v
+_results_handler	src/scripts/fabricate.py	/^def _results_handler( builder, delay=0.01):$/;"	f
+_run	src/scripts/fabricate.py	/^    def _run(self, *args, **kwargs):$/;"	m	class:Builder
+_runner_map	src/scripts/fabricate.py	/^    _runner_map = {$/;"	v	class:Builder
+_running	src/scripts/fabricate.py	/^class _running(object):$/;"	c
+_set_default_builder	src/scripts/fabricate.py	/^def _set_default_builder():$/;"	f
+_setup_builder	src/scripts/fabricate.py	/^_setup_builder = None$/;"	v
+_setup_default	src/scripts/fabricate.py	/^_setup_default = None$/;"	v
+_setup_kwargs	src/scripts/fabricate.py	/^_setup_kwargs = {}$/;"	v
+_shell	src/scripts/fabricate.py	/^def _shell(args, input=None, silent=True, shell=False, ignore_status=False, **kwargs):$/;"	f
+_stat_re	src/scripts/fabricate.py	/^    _stat_re       = re.compile(r'(?P<pid>\\d+)\\s+l?stat(?:64)?\\("(?P<name>[^"]*)", .*') # stat,lstat,stat64,lstat64$/;"	v	class:StraceRunner
+_stop_results	src/scripts/fabricate.py	/^_stop_results = threading.Event()$/;"	v
+_symlink_re	src/scripts/fabricate.py	/^    _symlink_re    = re.compile(r'(?P<pid>\\d+)\\s+symlink\\("[^"]*", "(?P<name>[^"]*)"\\)')$/;"	v	class:StraceRunner
+_todo	src/scripts/fabricate.py	/^class _todo(object):$/;"	c
+_unfinished_end_re	src/scripts/fabricate.py	/^    _unfinished_end_re   = re.compile(r'(?P<pid>\\d+)\\s+\\<\\.\\.\\..*\\>(?P<body>.*)')$/;"	v	class:StraceRunner
+_unfinished_start_re	src/scripts/fabricate.py	/^    _unfinished_start_re = re.compile(r'(?P<pid>\\d+)(?P<body>.*)<unfinished ...>$')$/;"	v	class:StraceRunner
+_usage	src/scripts/fabricate.py	/^_usage = '[options] build script functions to run'$/;"	v
+_utime	src/scripts/fabricate.py	/^    def _utime(self, filename, atime, mtime):$/;"	m	class:AtimesRunner
+access_file	src/scripts/fabricate.py	/^        def access_file(filename):$/;"	f	function:AtimesRunner.file_has_atimes
+actual_runner	src/scripts/fabricate.py	/^    def actual_runner(self):$/;"	m	class:Runner
+actual_runner	src/scripts/fabricate.py	/^    def actual_runner(self):$/;"	m	class:SmartRunner
+add	src/scripts/fabricate.py	/^    def add(self, id, val):$/;"	m	class:_Groups
+addTest	src/scripts/tptests.py	/^def addTest(cls, inputPath, expectedPath, outputPath):$/;"	f
+add_delayed_line	src/scripts/fabricate.py	/^    def add_delayed_line(self, line):$/;"	m	class:StraceProcess
+add_dep	src/scripts/fabricate.py	/^    def add_dep(self, dep):$/;"	m	class:StraceProcess
+add_for_blocked	src/scripts/fabricate.py	/^    def add_for_blocked(self, id, val):$/;"	m	class:_Groups
+add_output	src/scripts/fabricate.py	/^    def add_output(self, output):$/;"	m	class:StraceProcess
+after	src/scripts/fabricate.py	/^def after(*args):$/;"	f
+args_to_list	src/scripts/fabricate.py	/^def args_to_list(args):$/;"	f
+argv	src/metnum.py	/^from sys import argv$/;"	i
+assertRun	src/scripts/tptests.py	/^  def assertRun(self, inputPath, expectedPath, outputPath):$/;"	m	class:Tp1TestCase
+atexit	src/scripts/fabricate.py	/^import atexit$/;"	i
+autoclean	src/scripts/fabricate.py	/^    def autoclean(self):$/;"	m	class:Builder
+autoclean	src/scripts/fabricate.py	/^def autoclean():$/;"	f
+b	src/instancia/instancia.h	/^        double * b;$/;"	m	class:instancia
+back_substitution	src/base.py	/^def back_substitution(a, b, n):$/;"	f
+backward	src/scripts/fabricate.py	/^import threading # NB uses old camelCase names for backward compatibility$/;"	i
+build	src/metnum.py	/^def build():$/;"	f
+cPickle	src/scripts/fabricate.py	/^        import cPickle$/;"	i
+camelCase	src/scripts/fabricate.py	/^import threading # NB uses old camelCase names for backward compatibility$/;"	i
+chart_studio	src/base.py	/^import chart_studio.plotly as py$/;"	i
+clean	src/metnum.py	/^def clean():$/;"	f
+cmdline_outofdate	src/scripts/fabricate.py	/^    def cmdline_outofdate(self, command):$/;"	m	class:Builder
+cmm	src/base.py	/^    def cmm(self):$/;"	m	class:Instancia
+compatibility	src/scripts/fabricate.py	/^import threading # NB uses old camelCase names for backward compatibility$/;"	i
+compile	src/metnum.py	/^def compile():$/;"	f
+compiler	src/scripts/settings.py	/^compiler = 'g++'$/;"	v
+csv	src/tools/atp2mn.py	/^import csv$/;"	i
+csv	src/tools/massey2mn.py	/^import csv$/;"	i
+dec_count	src/scripts/fabricate.py	/^    def dec_count(self, id):$/;"	m	class:_Groups
+default_builder	src/scripts/fabricate.py	/^default_builder = None$/;"	v
+default_command	src/scripts/fabricate.py	/^default_command = 'build'$/;"	v
+deps	src/scripts/fabricate.py	/^    def deps(self):$/;"	m	class:Builder
+deps_version	src/scripts/fabricate.py	/^deps_version = 2$/;"	v
+done	src/scripts/fabricate.py	/^    def done(self, command, deps, outputs):$/;"	m	class:Builder
+download_plotlyjs	src/base.py	/^from plotly.offline import download_plotlyjs, init_notebook_mode, plot, iplot$/;"	i
+dump	src/scripts/fabricate.py	/^            def dump(self, obj, f, indent=None, sort_keys=None):$/;"	m	class:.PickleJson
+dynamicTest	src/scripts/tptests.py	/^  def dynamicTest(self): self.assertRun(inputPath, expectedPath, outputPath)$/;"	f	function:addTest
+echo	src/scripts/fabricate.py	/^    def echo(self, message):$/;"	m	class:Builder
+echo_command	src/scripts/fabricate.py	/^    def echo_command(self, command, echo=None):$/;"	m	class:Builder
+echo_debug	src/scripts/fabricate.py	/^    def echo_debug(self, message):$/;"	m	class:Builder
+echo_delete	src/scripts/fabricate.py	/^    def echo_delete(self, filename, error=None):$/;"	m	class:Builder
+ensure	src/scripts/fabricate.py	/^    def ensure(self, id):$/;"	m	class:_Groups
+equipos	src/base.py	/^    def equipos(self):$/;"	m	class:Instancia
+exists	src/scripts/fabricate.py	/^    def exists(path):$/;"	m	class:AtimesRunner
+extraParams	src/scripts/settings.py	/^extraParams = ['0']$/;"	v
+fabricate_version	src/scripts/fabricate.py	/^def fabricate_version(min=None, max=None):$/;"	f
+file_has_atimes	src/scripts/fabricate.py	/^    def file_has_atimes(filename):$/;"	m	class:AtimesRunner
+file_times	src/scripts/fabricate.py	/^    def file_times(self):$/;"	m	class:AtimesRunner
+fnmatch	src/scripts/utils.py	/^from fnmatch import fnmatch$/;"	i
+for	src/scripts/fabricate.py	/^import threading # NB uses old camelCase names for backward compatibility$/;"	i
+forward_elimination	src/base.py	/^def forward_elimination(A, b, n):$/;"	f
+ganados	src/instancia/instancia.h	/^        Matriz * ganados;$/;"	m	class:instancia
+gauss	src/base.py	/^def gauss(A, b):$/;"	f
+gauss	src/eliminaciongauss/elimgauss.cpp	/^double* gauss(Matriz *m,double * b) {$/;"	f
+generarCMM	src/instancia/instancia.cpp	/^void instancia::generarCMM(){$/;"	f	class:instancia
+generarInstanciaDesdeArchivo	src/main.cpp	/^instancia *generarInstanciaDesdeArchivo(ifstream &archivoDeEntrada){$/;"	f
+generarVectorB	src/instancia/instancia.cpp	/^void instancia::generarVectorB(){$/;"	f	class:instancia
+getCMM	src/instancia/instancia.cpp	/^Matriz *instancia::getCMM(){$/;"	f	class:instancia
+getEloRaiting	src/instancia/instancia.cpp	/^double* instancia::getEloRaiting(){$/;"	f	class:instancia
+getEloRaiting	src/main.cpp	/^double getEloRaiting(double ro1,double ro2,int equipo1,int equipo2,int goles1,int goles2,bool esLocal){$/;"	f
+getEloRating	src/base.py	/^    def getEloRating(self,equipo1,equipo2,goles1,goles2,esLocal=False,K=60):$/;"	m	class:Instancia
+getEquipoPerdido	src/instancia/instancia.cpp	/^int instancia::getEquipoPerdido(int equipo1){$/;"	f	class:instancia
+getGanados	src/instancia/instancia.cpp	/^Matriz *instancia::getGanados(){$/;"	f	class:instancia
+getM	src/matriz/matriz.cpp	/^int Matriz::getM() {$/;"	f	class:Matriz
+getMatrix	src/matriz/matriz.cpp	/^double** Matriz::getMatrix() {$/;"	f	class:Matriz
+getN	src/matriz/matriz.cpp	/^int Matriz::getN() {$/;"	f	class:Matriz
+getTotalEquipos	src/instancia/instancia.cpp	/^int instancia::getTotalEquipos(){$/;"	f	class:instancia
+getTotalGanados	src/instancia/instancia.cpp	/^double instancia::getTotalGanados(int numeroDeEquipo){$/;"	f	class:instancia
+getTotalJugados	src/instancia/instancia.cpp	/^double instancia::getTotalJugados(int numeroDeEquipo){$/;"	f	class:instancia
+getTotalJugadosEntreEquipos	src/instancia/instancia.cpp	/^double instancia::getTotalJugadosEntreEquipos(int numeroDeEquipo1,int numeroDeEquipo2){$/;"	f	class:instancia
+getTotalPartidos	src/instancia/instancia.cpp	/^int instancia::getTotalPartidos(){$/;"	f	class:instancia
+getTotalPerdidos	src/instancia/instancia.cpp	/^double instancia::getTotalPerdidos(int numeroDeEquipo){$/;"	f	class:instancia
+getTotales	src/instancia/instancia.cpp	/^int* instancia::getTotales(){$/;"	f	class:instancia
+getVal	src/matriz/matriz.cpp	/^double Matriz::getVal(int x, int y) {$/;"	f	class:Matriz
+getVectorB	src/instancia/instancia.cpp	/^double* instancia::getVectorB(){$/;"	f	class:instancia
+get_count	src/scripts/fabricate.py	/^    def get_count(self, id):$/;"	m	class:_Groups
+get_ok	src/scripts/fabricate.py	/^    def get_ok(self, id):$/;"	m	class:_Groups
+get_strace_system_calls	src/scripts/fabricate.py	/^    def get_strace_system_calls():$/;"	m	class:StraceRunner
+glob	src/scripts/tptests.py	/^from glob import glob$/;"	i
+go	src/base.py	/^import plotly.graph_objs as go$/;"	i
+has_atimes	src/scripts/fabricate.py	/^    def has_atimes(paths):$/;"	m	class:AtimesRunner
+hashlib	src/scripts/fabricate.py	/^    import hashlib$/;"	i
+ids	src/scripts/fabricate.py	/^    def ids(self):$/;"	m	class:_Groups
+ignore	src/scripts/fabricate.py	/^    def ignore(self, name):$/;"	m	class:Runner
+inc_count_for_blocked	src/scripts/fabricate.py	/^    def inc_count_for_blocked(self, id):$/;"	m	class:_Groups
+init_notebook_mode	src/base.py	/^from plotly.offline import download_plotlyjs, init_notebook_mode, plot, iplot$/;"	i
+input_path	src/tools/atp2mn.py	/^input_path = '..\/..\/data\/atp_matches_2015.csv'$/;"	v
+input_path	src/tools/massey2mn.py	/^input_path = '..\/..\/data\/nba_2016_scores.csv'$/;"	v
+instancia	src/instancia/instancia.h	/^class instancia{$/;"	c
+intToString	src/main.cpp	/^string intToString(int pNumber)$/;"	f
+iplot	src/base.py	/^from plotly.offline import download_plotlyjs, init_notebook_mode, plot, iplot$/;"	i
+item_list	src/scripts/fabricate.py	/^    def item_list(self, id):$/;"	m	class:_Groups
+json	src/scripts/fabricate.py	/^        import simplejson as json$/;"	i
+json	src/scripts/fabricate.py	/^        json = PickleJson()$/;"	v
+json	src/scripts/fabricate.py	/^    import json$/;"	i
+keep_temps	src/scripts/fabricate.py	/^    keep_temps = False$/;"	v	class:StraceRunner
+link	src/metnum.py	/^def link():$/;"	f
+listfiles	src/metnum.py	/^from scripts.utils import listfiles$/;"	i
+listfiles	src/scripts/settings.py	/^from scripts.utils import listfiles$/;"	i
+listfiles	src/scripts/tptests.py	/^from scripts.utils import listfiles$/;"	i
+listfiles	src/scripts/utils.py	/^def listfiles(root, pattern):$/;"	f
+load	src/scripts/fabricate.py	/^            def load(self, f):$/;"	m	class:.PickleJson
+m	src/matriz/matriz.h	/^        int m;$/;"	m	class:Matriz
+main	src/main.cpp	/^int main(int argc, char *argv[]) {$/;"	f
+main	src/scripts/fabricate.py	/^def main(globals_dict=None, build_dir=None, extra_options=None, builder=None,$/;"	f
+math	src/base.py	/^import math$/;"	i
+matrix	src/matriz/matriz.h	/^        double** matrix;$/;"	m	class:Matriz
+md5	src/scripts/fabricate.py	/^    import md5$/;"	i
+md5_hasher	src/scripts/fabricate.py	/^def md5_hasher(filename):$/;"	f
+md5func	src/scripts/fabricate.py	/^    md5func = hashlib.md5$/;"	v
+md5func	src/scripts/fabricate.py	/^    md5func = md5.new$/;"	v
+memoize	src/scripts/fabricate.py	/^    def memoize(self, command, **kwargs):$/;"	m	class:Builder
+memoize	src/scripts/fabricate.py	/^def memoize(command, **kwargs):$/;"	f
+mtime_hasher	src/scripts/fabricate.py	/^def mtime_hasher(filename):$/;"	f
+multiprocessing	src/scripts/fabricate.py	/^    import multiprocessing$/;"	i
+multiprocessing	src/scripts/fabricate.py	/^    multiprocessing = MultiprocessingModule()$/;"	v
+n	src/matriz/matriz.h	/^        int n;$/;"	m	class:Matriz
+n_games	src/tools/atp2mn.py	/^		n_games = n_games+1$/;"	v
+n_games	src/tools/atp2mn.py	/^	n_games = 0$/;"	v
+n_games	src/tools/massey2mn.py	/^		n_games = n_games+1$/;"	v
+n_games	src/tools/massey2mn.py	/^	n_games = 0$/;"	v
+names	src/scripts/fabricate.py	/^import threading # NB uses old camelCase names for backward compatibility$/;"	i
+np	src/base.py	/^import numpy as np$/;"	i
+old	src/scripts/fabricate.py	/^import threading # NB uses old camelCase names for backward compatibility$/;"	i
+optparse	src/scripts/fabricate.py	/^import optparse$/;"	i
+os	src/scripts/fabricate.py	/^import os$/;"	i
+os	src/scripts/settings.py	/^import os$/;"	i
+os	src/scripts/utils.py	/^import os$/;"	i
+out_str	src/tools/atp2mn.py	/^		out_str = out_str + row[5] + ' ' + row[7] + ' ' + '1' + ' ' + row[17] + ' ' + '0' + '\\n'$/;"	v
+out_str	src/tools/atp2mn.py	/^	out_str = ''$/;"	v
+out_str	src/tools/massey2mn.py	/^		out_str = out_str + row[1] + ' ' + row[2] + ' ' + row[4] + ' ' + row[5] + ' ' + row[7] + '\\n'$/;"	v
+out_str	src/tools/massey2mn.py	/^	out_str = ''$/;"	v
+outofdate	src/scripts/fabricate.py	/^    def outofdate(self, func):$/;"	m	class:Builder
+outofdate	src/scripts/fabricate.py	/^def outofdate(command):$/;"	f
+output_path	src/tools/atp2mn.py	/^output_path = '..\/..\/data\/atp_matches_2015.dat'$/;"	v
+output_path	src/tools/massey2mn.py	/^output_path = '..\/..\/data\/nba_2016_scores.dat'$/;"	v
+pairCompare	src/main.cpp	/^bool pairCompare(const std::pair<int, double>& firstElem, const std::pair<int, double>& secondElem) {$/;"	f
+parse_options	src/scripts/fabricate.py	/^def parse_options(usage=_usage, extra_options=None, command_line=None):$/;"	f
+partidos	src/base.py	/^    def partidos(self):$/;"	m	class:Instancia
+pd	src/base.py	/^import pandas as pd$/;"	i
+platform	src/scripts/fabricate.py	/^import platform$/;"	i
+plot	src/base.py	/^from plotly.offline import download_plotlyjs, init_notebook_mode, plot, iplot$/;"	i
+plotly	src/base.py	/^import plotly.graph_objs as go$/;"	i
+posicionValida	src/matriz/matriz.cpp	/^bool Matriz::posicionValida(int x, int y) {$/;"	f	class:Matriz
+print	src/instancia/instancia.cpp	/^void instancia::print(){$/;"	f	class:instancia
+printM	src/matriz/matriz.cpp	/^void Matriz::printM() {$/;"	f	class:Matriz
+printVector	src/main.cpp	/^void printVector(double * vec,int longitud){$/;"	f
+print_function	src/scripts/fabricate.py	/^from __future__ import with_statement, print_function, unicode_literals$/;"	i
+printerr	src/scripts/fabricate.py	/^def printerr(message):$/;"	f
+py	src/base.py	/^import chart_studio.plotly as py$/;"	i
+raitings	src/instancia/instancia.h	/^        double* raitings;$/;"	m	class:instancia
+re	src/scripts/fabricate.py	/^import re$/;"	i
+read_deps	src/scripts/fabricate.py	/^    def read_deps(self):$/;"	m	class:Builder
+remove	src/scripts/fabricate.py	/^    def remove(self, id):$/;"	m	class:_Groups
+remove_item	src/scripts/fabricate.py	/^    def remove_item(self, id, val):$/;"	m	class:_Groups
+run	src/scripts/fabricate.py	/^    def run(self, *args, **kwargs):$/;"	m	class:Builder
+run	src/scripts/fabricate.py	/^def run(*args, **kwargs):$/;"	f
+runTp	src/scripts/tptests.py	/^  def runTp(self, input, output):$/;"	m	class:Tp1TestCase
+score_reader	src/tools/atp2mn.py	/^	score_reader = csv.reader(csvfile,delimiter=',',skipinitialspace=True)$/;"	v
+score_reader	src/tools/massey2mn.py	/^	score_reader = csv.reader(csvfile,delimiter=',',skipinitialspace=True)$/;"	v
+scripts	src/scripts/tptests.py	/^import scripts.settings as settings$/;"	i
+setEloRaiting	src/instancia/instancia.cpp	/^void instancia::setEloRaiting(double* _raitings){$/;"	f	class:instancia
+setGanados	src/instancia/instancia.cpp	/^void instancia::setGanados(Matriz* _ganados){$/;"	f	class:instancia
+setTotalPartidos	src/instancia/instancia.cpp	/^void instancia::setTotalPartidos(int _totales){$/;"	f	class:instancia
+setTotales	src/instancia/instancia.cpp	/^void instancia::setTotales(int* _totales){$/;"	f	class:instancia
+setVal	src/matriz/matriz.cpp	/^    void Matriz::setVal(int x, int y, double val) {$/;"	f	class:Matriz
+set_ok	src/scripts/fabricate.py	/^    def set_ok(self, id, to):$/;"	m	class:_Groups
+set_runner	src/scripts/fabricate.py	/^    def set_runner(self, runner):$/;"	m	class:Builder
+settings	src/scripts/tptests.py	/^import scripts.settings as settings$/;"	i
+setup	src/scripts/fabricate.py	/^def setup(builder=None, default=None, **kwargs):$/;"	f
+shell	src/scripts/fabricate.py	/^def shell(*args, **kwargs):$/;"	f
+shlex	src/scripts/fabricate.py	/^import shlex$/;"	i
+son_iguales	src/eliminaciongauss/elimgauss.cpp	/^bool son_iguales(double a, double b, double delta = 1.0e-10) {$/;"	f
+sources	src/scripts/settings.py	/^sources = [f[:f.rfind('.')] for f in listfiles('.', '*.cpp')]$/;"	v
+stat	src/scripts/fabricate.py	/^import stat$/;"	i
+status	src/scripts/fabricate.py	/^        status = 1$/;"	v
+status	src/scripts/fabricate.py	/^        status = memoize(args)$/;"	v
+status	src/scripts/fabricate.py	/^    status = 0$/;"	v
+string_types	src/scripts/fabricate.py	/^    string_types = basestring$/;"	v
+string_types	src/scripts/fabricate.py	/^    string_types = str$/;"	v
+subprocess	src/scripts/fabricate.py	/^import subprocess$/;"	i
+sys	src/scripts/fabricate.py	/^import sys$/;"	i
+teams	src/tools/atp2mn.py	/^	teams = set()$/;"	v
+teams	src/tools/massey2mn.py	/^	teams = set()$/;"	v
+tempfile	src/scripts/fabricate.py	/^import tempfile$/;"	i
+test	src/metnum.py	/^def test():$/;"	f
+textwrap	src/scripts/fabricate.py	/^import textwrap$/;"	i
+threading	src/scripts/fabricate.py	/^import threading # NB uses old camelCase names for backward compatibility$/;"	i
+threading_condition	src/scripts/fabricate.py	/^    threading_condition = threading.Condition$/;"	v
+threading_condition	src/scripts/fabricate.py	/^    threading_condition = threading._Condition$/;"	v
+time	src/scripts/fabricate.py	/^import time$/;"	i
+totalPartidos	src/instancia/instancia.h	/^        int  totalPartidos;$/;"	m	class:instancia
+totales	src/instancia/instancia.h	/^        int * totales ;$/;"	m	class:instancia
+traceback	src/scripts/fabricate.py	/^import traceback$/;"	i
+unicode_literals	src/scripts/fabricate.py	/^from __future__ import with_statement, print_function, unicode_literals$/;"	i
+unittest	src/metnum.py	/^  import unittest$/;"	i
+unittest	src/scripts/tptests.py	/^import unittest$/;"	i
+uses	src/scripts/fabricate.py	/^import threading # NB uses old camelCase names for backward compatibility$/;"	i
+value	src/scripts/fabricate.py	/^    class value(object):$/;"	c	class:_Groups
+with_statement	src/scripts/fabricate.py	/^from __future__ import with_statement, print_function, unicode_literals$/;"	i
+wp	src/base.py	/^    def wp(self):$/;"	m	class:Instancia
+wp	src/wp/wp.cpp	/^double* wp(instancia* ins){$/;"	f
+write_deps	src/scripts/fabricate.py	/^    def write_deps(self, depsname=None):$/;"	m	class:Builder
+~Matriz	src/matriz/matriz.cpp	/^Matriz::~Matriz() {$/;"	f	class:Matriz
+~instancia	src/instancia/instancia.cpp	/^instancia::~instancia(){$/;"	f	class:instancia
