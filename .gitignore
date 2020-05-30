@@ -8,8 +8,13 @@ src/scripts/__pycache__
 .deps
 .idea/
 cmake-build-debug/
-eigen/
-pybind11
 .gitmodules
 test.csv
 train.csv
+tp2/tp2/
+tp2/build/
+tp2/Untitled.ipynb
+tp2/.ipynb_checkpoints/
+tp2/notebooks/Untitled.ipynb
+tp2/notebooks/.ipynb_checkpoints/
+tp2/notebooks/metnum.cpython-36m-x86_64-linux-gnu.so
