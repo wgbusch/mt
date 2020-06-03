@@ -20,6 +20,17 @@ void test_get_first_eigenvalues() {
 int main(int argc, char **argv) {
     std::cout << "Hola mundo!" << std::endl;
     test_get_first_eigenvalues();
+    Matrix X(2,2);
+    X(0,0) =2;
+    X(0,1) =4;
+    X(1,0) =4;
+    X(1,1) =10;
+
+    PCA pca(2,100000, 1e-15);
+
+    Matrix u = pca.transform(X);
+    std::cout << "\n-- matrix :" <<  "-----\n" << u << "\n-------\n"
+              << std::endl;
     return 0;
 }
 
