@@ -4,8 +4,6 @@
 
 using namespace std;
 
-unsigned int n_components;
-
 PCA::PCA(unsigned int n_components, unsigned num_iter, double epsilon) {
     this->n_components = n_components;
     this->num_iter = num_iter;
@@ -37,6 +35,5 @@ Matrix PCA::calculate_covariance(Matrix matrix) {
     for (unsigned int i = 0; i < matrix.cols(); i++) {
         matrix_with_zero_mean.col(i) -= Vector::Constant(matrix_with_zero_mean.rows(), mean(i));
     }
-
     return (matrix_with_zero_mean.transpose() * matrix_with_zero_mean) / (n - 1);
 }
