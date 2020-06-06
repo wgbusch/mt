@@ -13,6 +13,8 @@ KNNClassifier::KNNClassifier(unsigned int n_neighbors) {
 void KNNClassifier::fit(Matrix X, Matrix y) {
     this->x_train = X;
     this->y_train = y;
+    std::cout <<x_train <<std::endl;
+    std::cout <<y_train <<std::endl;
 }
 
 Vector KNNClassifier::predict(Matrix X) {
@@ -31,7 +33,8 @@ bool compareFirstCoordinate(pair<double, unsigned int> pair1, pair<double, unsig
 
 unsigned int KNNClassifier::get_mode(std::vector<pair<double, unsigned int>> distances) {
     std::vector<int> histogram(10, 0);
-    for (unsigned int i = 0; i < n_neighbors; ++i)
+    unsigned int max = min(n_neighbors, (unsigned int) distances.size());
+    for (unsigned int i = 0; i < max; ++i)
         ++histogram[distances[i].second];
 
     std::cout<<"\nhistogram: " <<std::endl;
@@ -47,7 +50,7 @@ unsigned int KNNClassifier::calculate_KNN(Vector vector_to_predict) {
     std::vector<pair<double, unsigned int>> distances(this->x_train.rows());
     for (unsigned i = 0; i < x_train.rows(); i++) {
         double distance =  (vector_to_predict.transpose() - this->x_train.row(i)).norm();
-        unsigned int digit_class = this->y_train.row(i)(1);
+        unsigned int digit_class = (unsigned int) this->y_train.coeff(i,0);
         distances[i] = (make_pair(distance, digit_class));
     }
 
