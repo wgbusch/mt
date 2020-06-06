@@ -5,6 +5,8 @@
 #include <iostream>
 #include "pca.h"
 #include "eigen.h"
+#include "CSVToEigen.h"
+#include "knn.h"
 
 void test_get_first_eigenvalues() {
     Eigen::Matrix<double, 5, 1> v;
@@ -19,18 +21,21 @@ void test_get_first_eigenvalues() {
 
 int main(int argc, char **argv) {
     std::cout << "Hola mundo!" << std::endl;
-    test_get_first_eigenvalues();
-    Matrix X(2,2);
-    X(0,0) =2;
-    X(0,1) =4;
-    X(1,0) =4;
-    X(1,1) =10;
 
-    PCA pca(2,100000, 1e-15);
 
-    Matrix u = pca.transform(X);
-    std::cout << "\n-- matrix :" <<  "-----\n" << u << "\n-------\n"
-              << std::endl;
+
+    CSVToEigen<MatrixXd> converter = CSVToEigen<MatrixXd>();
+
+    MatrixXd X_train = converter.load_csv("../notebooks/X_train.csv");
+    MatrixXd X_val = converter.load_csv("../notebooks/X_val.csv");
+    MatrixXd y_train = converter.load_csv("../notebooks/y_train.csv");
+    MatrixXd y_val = converter.load_csv("../notebooks/y_val.csv");
+
+    KNNClassifier knn = KNNClassifier(100);
+    knn.fit(X_train, y_train);
+
+    MatrixXd prediction = knn.predict(X_val);
+    
     return 0;
 }
 

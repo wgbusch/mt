@@ -47,22 +47,11 @@ unsigned int KNNClassifier::calculate_KNN(Vector vector_to_predict) {
     std::vector<pair<double, unsigned int>> distances(this->x_train.rows());
     for (unsigned i = 0; i < x_train.rows(); i++) {
         double distance =  (vector_to_predict.transpose() - this->x_train.row(i)).norm();
-        std::cout << "distance : " << distance << std::endl;
         unsigned int digit_class = this->y_train.row(i)(1);
         distances[i] = (make_pair(distance, digit_class));
     }
-    std::cout << "distance vector before ordering:\n" << std::endl;
-    for (std::vector<pair<double,unsigned int>>::const_iterator i = distances.begin(); i != distances.end(); ++i)
-        std::cout << (*i).first << ',';
 
-    std::cout << "end:\n" << std::endl;
-
-    std::sort(distances.begin(), distances.end());
-    std::cout << "distance vector after ordering:\n" << std::endl;
-
-    for (std::vector<pair<double,unsigned int>>::const_iterator i = distances.begin(); i != distances.end(); ++i)
-        std::cout << (*i).first << ',';
-    std::cout << "end:\n" << std::endl;
+    std::sort(distances.begin(), distances.end(), compareFirstCoordinate);
 
     return get_mode(distances);
 }
