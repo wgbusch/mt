@@ -3,6 +3,8 @@
 //
 
 #include <string>
+#include <fstream>
+
 #ifndef TP2_CSVTOEIGEN_H
 #define TP2_CSVTOEIGEN_H
 
