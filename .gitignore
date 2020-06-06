@@ -19,3 +19,4 @@ tp2/notebooks/Untitled.ipynb
 tp2/notebooks/.ipynb_checkpoints/
 tp2/notebooks/metnum.cpython-36m-x86_64-linux-gnu.so
 tp2/notebooks/*.csv
+tp2/notebooks/*/*.csv
