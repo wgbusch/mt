@@ -13,6 +13,7 @@ pair<double, Vector> power_iteration(const Matrix &X, unsigned num_iter, double 
     for (unsigned int i = 0; i < num_iter; i++) {
         b_old = b;
         b = X * b;
+
         b.normalize();
 
         double cos_angle = b.dot(b_old);
@@ -25,7 +26,7 @@ pair<double, Vector> power_iteration(const Matrix &X, unsigned num_iter, double 
 }
 
 pair<Vector, Matrix> get_first_eigenvalues(const Matrix &X, unsigned num, unsigned num_iter, double epsilon) {
-    Matrix A(X);
+    Matrix A = X;
     Vector eigvalues(num);
     Matrix eigvectors(A.rows(), num);
 

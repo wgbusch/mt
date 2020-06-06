@@ -7,6 +7,7 @@
 #include "eigen.h"
 #include "CSVToEigen.h"
 #include "knn.h"
+#include "Matrix_printer.h"
 
 void test_get_first_eigenvalues() {
     Eigen::Matrix<double, 5, 1> v;
@@ -22,20 +23,23 @@ void test_get_first_eigenvalues() {
 int main(int argc, char **argv) {
     std::cout << "Hola mundo!" << std::endl;
 
-
-
     CSVToEigen<MatrixXd> converter = CSVToEigen<MatrixXd>();
 
-    MatrixXd X_train = converter.load_csv("../notebooks/X_train.csv");
-    MatrixXd X_val = converter.load_csv("../notebooks/X_val.csv");
-    MatrixXd y_train = converter.load_csv("../notebooks/y_train.csv");
-    MatrixXd y_val = converter.load_csv("../notebooks/y_val.csv");
+    MatrixXd X_train = converter.load_csv("../notebooks/06_06_18_22_31/X_train.csv");
+    MatrixXd X_val = converter.load_csv("../notebooks/06_06_18_22_31/X_val.csv");
+    MatrixXd y_train = converter.load_csv("../notebooks/06_06_18_22_31/y_train.csv");
+    MatrixXd y_val = converter.load_csv("../notebooks/06_06_18_22_31/y_val.csv");
+
+    PCA pca = PCA(20,1000,1e-10);
+
+    pca.fit(X_train);
+    MatrixXd X_train_pca = pca.transform(X_train);
+    MatrixXd X_val_pca = pca.transform(X_val);
 
     KNNClassifier knn = KNNClassifier(100);
-    knn.fit(X_train, y_train);
+    knn.fit(X_train_pca, y_train);
 
-    MatrixXd prediction = knn.predict(X_val);
-    std::cout << prediction << std::endl;
-
+    MatrixXd prediction = knn.predict(X_val_pca);
+    Matrix_printer<MatrixXd>::print_matrix(prediction, "prediction");
     return 0;
 }

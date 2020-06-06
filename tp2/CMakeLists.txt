@@ -52,7 +52,7 @@ add_executable(tp2
         src/main.cpp
         src/knn.cpp
         src/pca.cpp
-        src/eigen.cpp src/CSVToEigen.h)
+        src/eigen.cpp src/CSVToEigen.h src/Matrix_printer.h)
 
 
 # si se quiere hacer un ejecutable "tp2" que incluya pybind11, utilizar las
