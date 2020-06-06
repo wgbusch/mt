@@ -24,6 +24,7 @@ Vector KNNClassifier::predict(Matrix X) {
     for (unsigned k = 0; k < X.rows(); ++k) {
         ret(k) = calculate_KNN(X.row(k));
     }
+    std::cout<<ret <<std::endl;
     return ret;
 }
 
@@ -36,13 +37,7 @@ unsigned int KNNClassifier::get_mode(std::vector<pair<double, unsigned int>> dis
     unsigned int max = min(n_neighbors, (unsigned int) distances.size());
     for (unsigned int i = 0; i < max; ++i)
         ++histogram[distances[i].second];
-
-    std::cout<<"\nhistogram: " <<std::endl;
-    for (std::vector<int>::const_iterator i = histogram.begin(); i != histogram.end(); ++i)
-        std::cout << *i << ',';
-    unsigned int x =  std::max_element(histogram.begin(), histogram.end()) - histogram.begin();
-    std::cout<<"\nmax: " << * std::max_element(histogram.begin(), histogram.end())  <<std::endl;
-    return x;
+    return (std::max_element(histogram.begin(), histogram.end())  - histogram.begin());
 }
 
 unsigned int KNNClassifier::calculate_KNN(Vector vector_to_predict) {
@@ -50,7 +45,7 @@ unsigned int KNNClassifier::calculate_KNN(Vector vector_to_predict) {
     std::vector<pair<double, unsigned int>> distances(this->x_train.rows());
     for (unsigned i = 0; i < x_train.rows(); i++) {
         double distance =  (vector_to_predict.transpose() - this->x_train.row(i)).norm();
-        unsigned int digit_class = (unsigned int) this->y_train.coeff(i,0);
+        auto digit_class = (unsigned int) this->y_train.coeff(i,0);
         distances[i] = (make_pair(distance, digit_class));
     }
 
@@ -58,4 +53,3 @@ unsigned int KNNClassifier::calculate_KNN(Vector vector_to_predict) {
 
     return get_mode(distances);
 }
-

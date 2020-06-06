@@ -35,7 +35,7 @@ int main(int argc, char **argv) {
     knn.fit(X_train, y_train);
 
     MatrixXd prediction = knn.predict(X_val);
+    std::cout << prediction << std::endl;
 
     return 0;
 }
-

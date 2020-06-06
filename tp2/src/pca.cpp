@@ -17,7 +17,6 @@ void PCA::fit(Matrix X) {
     this->base_change_matrix = eigenvectors_matrix;
 }
 
-
 MatrixXd PCA::transform(Matrix X) {
     return X * base_change_matrix;
 }
