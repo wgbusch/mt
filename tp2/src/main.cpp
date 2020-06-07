@@ -40,6 +40,5 @@ int main(int argc, char **argv) {
     knn.fit(X_train_pca, y_train);
 
     MatrixXd prediction = knn.predict(X_val_pca);
-    Matrix_printer<MatrixXd>::print_matrix(prediction, "prediction");
     return 0;
 }

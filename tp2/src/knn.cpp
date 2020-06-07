@@ -13,8 +13,6 @@ KNNClassifier::KNNClassifier(unsigned int n_neighbors) {
 void KNNClassifier::fit(Matrix X, Matrix y) {
     this->x_train = X;
     this->y_train = y;
-    std::cout <<x_train <<std::endl;
-    std::cout <<y_train <<std::endl;
 }
 
 Vector KNNClassifier::predict(Matrix X) {
@@ -24,7 +22,6 @@ Vector KNNClassifier::predict(Matrix X) {
     for (unsigned k = 0; k < X.rows(); ++k) {
         ret(k) = calculate_KNN(X.row(k));
     }
-    std::cout<<ret <<std::endl;
     return ret;
 }
 
