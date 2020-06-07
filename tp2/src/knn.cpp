@@ -41,7 +41,6 @@ unsigned int KNNClassifier::get_mode(std::vector<pair<double, unsigned int>> dis
 }
 
 unsigned int KNNClassifier::calculate_KNN(Vector vector_to_predict) {
-
     std::vector<pair<double, unsigned int>> distances(this->x_train.rows());
     for (unsigned i = 0; i < x_train.rows(); i++) {
         double distance =  (vector_to_predict.transpose() - this->x_train.row(i)).norm();
