@@ -36,7 +36,7 @@ int main(int argc, char **argv) {
     MatrixXd X_train_pca = pca.transform(X_train);
     MatrixXd X_val_pca = pca.transform(X_val);
 
-    KNNClassifier knn = KNNClassifier(100);
+    KNNClassifier knn = KNNClassifier(1000);
     knn.fit(X_train_pca, y_train);
 
     MatrixXd prediction = knn.predict(X_val_pca);
