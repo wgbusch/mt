@@ -12,12 +12,18 @@
 template<typename M>
 class CSVToEigen {
 public:
-    M load_csv (const std::string & path) {
+    M load_csv (const std::string & path, const bool & skip_headers=false) {
         std::ifstream indata;
         indata.open(path);
         std::string line;
         std::vector<double> values;
         uint rows = 0;
+
+        if(skip_headers){
+            std::getline(indata, line);
+            ++rows;
+        }
+
         while (std::getline(indata, line)) {
             std::stringstream lineStream(line);
             std::string cell;
