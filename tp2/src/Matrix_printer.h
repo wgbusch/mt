@@ -19,7 +19,7 @@ public:
         std::cout << "\n--------------" << name << "----------------\n" << std::endl;
         if (limit > 0) {
             for (unsigned int i = 0; i < limit; i++) {
-                //    std::cout << A.row(i) << std::endl;
+                    std::cout << A.row(i) << std::endl;
             }
         } else {
             std::cout << A << std::endl;

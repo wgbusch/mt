@@ -21,7 +21,10 @@ public:
 
         if(skip_headers){
             std::getline(indata, line);
-            ++rows;
+            std::stringstream lineStream(line);
+            std::string cell;
+            while (std::getline(lineStream, cell, ',')) {
+            }
         }
 
         while (std::getline(indata, line)) {
