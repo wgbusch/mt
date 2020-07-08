@@ -27,3 +27,7 @@ Matrix PCA::calculate_covariance(Matrix matrix) {
     MatrixXd centered = matrix.rowwise() - matrix.colwise().mean();
     return (centered.transpose() * centered) / double(matrix.rows() - 1);
 }
+
+Matrix PCA::get_base_change_matrix(){
+    return base_change_matrix;
+}

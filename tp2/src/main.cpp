@@ -6,7 +6,7 @@
 #include <sys/time.h>
 #include "pca.h"
 #include "eigen.h"
-#include "CSVToEigen.h"
+#include "CSVEigenConverter.h"
 #include "knn.h"
 #include "Matrix_printer.h"
 
@@ -22,17 +22,25 @@ double EPSILON = 1e-10;
 unsigned int PERCENTAGE_OF_TRAIN_CASES = 1;
 const char *methods[2] = {"KNN", "KNN+PCA"};
 
-std::string method;
 std::string train_set;
-std::string test_set;
-std::string classif;
+//std::string test_set;
+//std::string classif;
+std::string mode;
+//std::string method;
 
-void print_info(std::string method, double time);
+void print_info(char **argv, double time);
+
 void save_to_file(std::string, Vector matrix);
+
 timeval start_time();
+
 double end_time(timeval start);
 
 void get_arguments(char **pString);
+
+std::pair<std::string, std::string> train(char **argv);
+
+void predict(char **pString);
 
 void test_get_first_eigenvalues() {
     Eigen::Matrix<double, 5, 1> v;
@@ -47,7 +55,7 @@ void test_get_first_eigenvalues() {
 
 void test() {
 
-    CSVToEigen<MatrixXd> converter = CSVToEigen<MatrixXd>();
+    CSVEigenConverter<MatrixXd> converter = CSVEigenConverter<MatrixXd>();
 
     MatrixXd X_train = converter.load_csv("../notebooks/06_06_18_22_31/X_train.csv");
     MatrixXd X_val = converter.load_csv("../notebooks/06_06_18_22_31/X_val.csv");
@@ -72,39 +80,120 @@ int main(int argc, char **argv) {
 
     get_arguments(argv);
 
-    CSVToEigen<MatrixXd> converter = CSVToEigen<MatrixXd>();
+    //Only train
+    //[0,1,2 - mode of the app] [0,1 - 0: knn, 1: knn+pca] [if mode=0, 1 - ]
+    //for mode 0 syntax is:
+    //0 [0,1 - knn/knn+pca] [path to train_set]
+    if (strcmp(argv[1], "0") == 0) {
+        train(argv);
+    }
+
+    //Only predict
+    //for mode 1 syntax is:
+    //1 [0,1 - knn/knn+pca] [path to X matrix if knn, path to change of base matrix if pca] [path to Y] [name of test file] [name of output file]
+    else if (strcmp(argv[1], "1") == 0) {
+        predict(argv);
+    }
+    //Train and predict - original syntax
+    //2 [0,1 - knn/knn+pca] [path to train_set] [path to test file] [name of output file]
+    else if (strcmp(argv[1], "2") == 0) {
+        //full(argv);
+        train(argv);
+        predict(argv);
+    }
+
+//
+//    CSVEigenConverter<MatrixXd> converter = CSVEigenConverter<MatrixXd>();
+//    Matrix temp = converter.load_csv(train_set, true);
+//    KNNClassifier knn = KNNClassifier(N_NEIGHBORS);
+//    Matrix X = temp.block(0, 1, temp.rows(), temp.cols() - 1);
+//    Matrix Y = temp.block(0, 0, temp.rows(), 1);
+//    Matrix X_test = converter.load_csv(test_set, true);
+//
+//    if (method == methods[1]) {
+//        PCA pca = PCA(N_COMPONENTS, N_ITERATIONS, EPSILON);
+//        pca.fit(X);
+//        X = pca.transform(X);
+//        X_test = pca.transform(X_test);
+//    }
+//
+//    knn.fit(X, Y);
+//    Vector y_pred = knn.predict(X_test);
+
+    double time = end_time(start);
+    print_info(argv, time);
+
+
+    return 0;
+}
+
+void predict(char **argv) {
+
+    std::string method = argv[2];
+    std::string path_to_X = argv[3];
+    std::string path_to_Y = argv[4];
+    std::string test_set = argv[5];
+    std::string classif = argv[6];
+
+    CSVEigenConverter<MatrixXd> converter = CSVEigenConverter<MatrixXd>();
     Matrix temp = converter.load_csv(train_set, true);
+
+
+    Matrix Y = converter.load_csv(train_set, true);
+
+    Matrix X_test = converter.load_csv(test_set, true);
+
+    if(method == methods[0]){
+        Matrix X = converter.load_csv(path_to_X, true);
+    }
+    else if (method == methods[1]) {
+        Matrix base_change_matrix = converter.load_csv(path_to_X, true);
+        X_test = X_test * base_change_matrix;
+    }
+
     KNNClassifier knn = KNNClassifier(N_NEIGHBORS);
+    knn.fit(X, Y);
+    Vector y_pred = knn.predict(X_test);
+    save_to_file(classif, y_pred);
+}
+
+std::pair<std::string, std::string> train(char **argv) {
+    std::string method;
+    if (strcmp(argv[2], "0") == 0) {
+        method = methods[0];
+    } else if (strcmp(argv[2], "1") == 0) {
+        method = methods[1];
+    }
+
+    train_set = argv[3];
+    CSVEigenConverter<MatrixXd> converter = CSVEigenConverter<MatrixXd>();
+    Matrix temp = converter.load_csv(train_set, true);
     Matrix X = temp.block(0, 1, temp.rows(), temp.cols() - 1);
     Matrix Y = temp.block(0, 0, temp.rows(), 1);
-    Matrix X_test = converter.load_csv(test_set, true);
 
     if (method == methods[1]) {
         PCA pca = PCA(N_COMPONENTS, N_ITERATIONS, EPSILON);
         pca.fit(X);
         X = pca.transform(X);
-        X_test = pca.transform(X_test);
+        converter.writeToCSVfile("base_change_matrix.csv",
+                                 pca.get_base_change_matrix());
     }
 
-    knn.fit(X, Y);
-    Vector y_pred = knn.predict(X_test);
-
-    double time = end_time(start);
-    print_info(method, time);
-    save_to_file(classif, y_pred);
-
-    return 0;
+    converter.writeToCSVfile("X.csv", X);
+    converter.writeToCSVfile("Y.csv", Y);
+    return std::pair<std::string, std::string>("X.csv", "Y.csv");
 }
 
-void get_arguments(char ** argv) {
-    if (strcmp(argv[1], "0") == 0) {
-        method = methods[0];
-    } else if (strcmp(argv[1], "1") == 0) {
-        method = methods[1];
-    }
-    train_set = argv[2];
-    test_set = argv[3];
-    classif = argv[4];
+void get_arguments(char **argv) {
+//    if (strcmp(argv[1], "0") == 0) {
+//        method = methods[0];
+//    } else if (strcmp(argv[1], "1") == 0) {
+//        method = methods[1];
+//    }
+//    train_set = argv[2];
+//    test_set = argv[3];
+//    classif = argv[4];
+//    mode = argv[5];
 }
 
 double end_time(timeval start) {
@@ -136,12 +225,14 @@ void save_to_file(std::string name, Vector content) {
 
 }
 
-void print_info(double time) {
+void print_info(char **argv, double time) {
     unsigned int percentage = (unsigned int) PERCENTAGE_OF_TRAIN_CASES * 100;
     std::cout << "------------------------°------------------------" << std::endl;
-    std::cout << "Finished in: " << (unsigned int) time / 1000 << " seconds."<< std::endl;
-    std::cout << "Method used in trainig: " << method << std::endl,
-            std::cout << "Number of neighbors used in KNN: " << N_NEIGHBORS << std::endl;
+    std::cout << "Finished in: " << (unsigned int) time / 1000 << " seconds." << std::endl;
+    if (strcmp(argv[1], "1") != 0) {
+        std::cout << "Method used in trainig: " << argv[2] << std::endl;
+    }
+    std::cout << "Number of neighbors used in KNN: " << N_NEIGHBORS << std::endl;
     std::cout << "Number of components used in PCA: " << N_COMPONENTS << std::endl;
     std::cout << "Number of iterations used in power iteration: " << N_ITERATIONS << std::endl;
     std::cout << "Epsilon used in power iteration: " << EPSILON << std::endl;

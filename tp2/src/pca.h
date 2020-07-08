@@ -8,6 +8,9 @@ public:
     void fit(Matrix X);
 
     Eigen::MatrixXd transform(Matrix X);
+
+    Matrix get_base_change_matrix();
+
 private:
     unsigned int n_components;
     unsigned num_iter;

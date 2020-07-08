@@ -8,18 +8,29 @@
 #ifndef TP2_CSVTOEIGEN_H
 #define TP2_CSVTOEIGEN_H
 
+const static Eigen::IOFormat CSVFormat(Eigen::StreamPrecision,
+                                       Eigen::DontAlignCols,
+                                       ", ",
+                                       "\n");
 
 template<typename M>
-class CSVToEigen {
+class CSVEigenConverter {
 public:
-    M load_csv (const std::string & path, const bool & skip_headers=false) {
+
+    void writeToCSVfile(std::string name, M matrix)
+    {
+        std::ofstream file(name.c_str());
+        file << matrix.format(CSVFormat);
+    }
+
+    M load_csv(const std::string &path, const bool &skip_headers = false) {
         std::ifstream indata;
         indata.open(path);
         std::string line;
         std::vector<double> values;
         uint rows = 0;
 
-        if(skip_headers){
+        if (skip_headers) {
             std::getline(indata, line);
             std::stringstream lineStream(line);
             std::string cell;
@@ -35,7 +46,8 @@ public:
             }
             ++rows;
         }
-        return Eigen::Map<const Eigen::Matrix<typename M::Scalar, M::RowsAtCompileTime, M::ColsAtCompileTime, Eigen::RowMajor>>(values.data(), rows, values.size()/rows);
+        return Eigen::Map<const Eigen::Matrix<typename M::Scalar, M::RowsAtCompileTime, M::ColsAtCompileTime, Eigen::RowMajor>>(
+                values.data(), rows, values.size() / rows);
     }
 };
 
