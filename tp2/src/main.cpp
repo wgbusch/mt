@@ -80,7 +80,7 @@ int main(int argc, char **argv) {
     get_arguments(argc,argv);
 
     CSVEigenConverter<MatrixXd> converter = CSVEigenConverter<MatrixXd>();
-    
+
     if (mode == modes[0]) {
         Matrix temp = converter.load_csv(train_set, true);
         Matrix X = temp.block(0, 1, temp.rows(), temp.cols() - 1);
