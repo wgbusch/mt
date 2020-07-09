@@ -40,7 +40,7 @@ timeval start_time();
 
 double end_time(timeval start);
 
-void get_arguments(char **pString);
+void get_arguments(int argc, char **pString);
 
 void test_get_first_eigenvalues() {
     Eigen::Matrix<double, 5, 1> v;
@@ -77,7 +77,7 @@ int main(int argc, char **argv) {
 
     timeval start = start_time();
 
-    get_arguments(argv);
+    get_arguments(argc,argv);
 
     if (mode == modes[0]) {
         CSVEigenConverter<MatrixXd> converter = CSVEigenConverter<MatrixXd>();
@@ -100,11 +100,11 @@ int main(int argc, char **argv) {
         CSVEigenConverter<MatrixXd> converter = CSVEigenConverter<MatrixXd>();
         Matrix X = converter.load_csv(X_matrix_path, true);
         Matrix Y = converter.load_csv(Y_matrix_path, true);
-        Matrix X_test = converter.load_csv(test_set, true);
+        Matrix X_test_temp = converter.load_csv(test_set, true);
+        Matrix X_test = X_test_temp.block(0, 1, X_test_temp.rows(), X_test_temp.cols() - 1);
         Matrix base_change_matrix = converter.load_csv(base_change_matrix_path, true);
 
         if (method == methods[1]) {
-            PCA pca = PCA(N_COMPONENTS, N_ITERATIONS, EPSILON);
             X_test = X_test * base_change_matrix;
         }
 
@@ -139,7 +139,7 @@ int main(int argc, char **argv) {
     return 0;
 }
 
-void get_arguments(char **argv) {
+void get_arguments(int argc, char **argv) {
     if (strcmp(argv[1], "0") == 0) {
         method = methods[0];
     } else if (strcmp(argv[1], "1") == 0) {
@@ -151,21 +151,25 @@ void get_arguments(char **argv) {
 
     // Mode for the application: 0 for only training,
     // 1 for only predict, 2 for train+predict.
-    mode = argv[5];
-    if (strcmp(argv[5], "0") == 0) {
-        mode = modes[0];
-    } else if (strcmp(argv[5], "1") == 0) {
-        mode = modes[1];
-    } else if (strcmp(argv[5], "2") == 0) {
+    if(argc >5){
+        mode = argv[5];
+        if (strcmp(argv[5], "0") == 0) {
+            mode = modes[0];
+        } else if (strcmp(argv[5], "1") == 0) {
+            mode = modes[1];
+        } else if (strcmp(argv[5], "2") == 0) {
+            mode = modes[2];
+        }
+
+        // Paths where to save the matrix that are created in training (in train mode - 0),
+        // or where to load them from (in predict mode - 1).
+        // Can be whatever for mode 2 (train+predict at once - 2)
+        base_change_matrix_path = argv[6];
+        X_matrix_path = argv[7];
+        Y_matrix_path = argv[8];
+    } else{
         mode = modes[2];
     }
-
-    // Paths where to save the matrix that are created in training (in train mode - 0),
-    // or where to load them from (in predict mode - 1).
-    // Can be whatever for mode 2 (train+predict at once - 2)
-    base_change_matrix_path = argv[6];
-    X_matrix_path = argv[7];
-    Y_matrix_path = argv[8];
 }
 
 double end_time(timeval start) {
