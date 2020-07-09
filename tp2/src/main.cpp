@@ -79,8 +79,9 @@ int main(int argc, char **argv) {
 
     get_arguments(argc,argv);
 
+    CSVEigenConverter<MatrixXd> converter = CSVEigenConverter<MatrixXd>();
+    
     if (mode == modes[0]) {
-        CSVEigenConverter<MatrixXd> converter = CSVEigenConverter<MatrixXd>();
         Matrix temp = converter.load_csv(train_set, true);
         Matrix X = temp.block(0, 1, temp.rows(), temp.cols() - 1);
         Matrix Y = temp.block(0, 0, temp.rows(), 1);
@@ -97,7 +98,6 @@ int main(int argc, char **argv) {
         converter.writeToCSVfile(Y_matrix_path, Y);
 
     } else if (mode == modes[1]) {
-        CSVEigenConverter<MatrixXd> converter = CSVEigenConverter<MatrixXd>();
         Matrix X = converter.load_csv(X_matrix_path, true);
         Matrix Y = converter.load_csv(Y_matrix_path, true);
         Matrix X_test_temp = converter.load_csv(test_set, true);
@@ -114,7 +114,6 @@ int main(int argc, char **argv) {
         save_to_file(classif, y_pred);
 
     } else if (mode == modes[2]) {
-        CSVEigenConverter<MatrixXd> converter = CSVEigenConverter<MatrixXd>();
         Matrix temp = converter.load_csv(train_set, true);
         KNNClassifier knn = KNNClassifier(N_NEIGHBORS);
         Matrix X = temp.block(0, 1, temp.rows(), temp.cols() - 1);
