@@ -138,36 +138,77 @@ int main(int argc, char **argv) {
     return 0;
 }
 
+void showUsage(){
+    const std::string usage = R"USAGE(
+usage: ./tp2 -m METHOD -i TRAIN -q TEST -o OUTPUT
+
+Digit recognition using KNN and PCA.
+
+Arguments:
+    -m METHOD    Specify 0 for knn or 1 for knn and pca
+    -i TRAIN     Path to the training set.
+    -i TEST      Path to the test set.
+    -o OUTPUT    Path where the classification results will be written to.
+    )USAGE";
+    std::cout << usage << "\n"; 
+}
+
 void get_arguments(int argc, char **argv) {
-    if (strcmp(argv[1], "0") == 0) {
-        method = methods[0];
-    } else if (strcmp(argv[1], "1") == 0) {
-        method = methods[1];
+    int mandatoryQuantity = 9; // 2*4 (flag and values) + 1 (program name)
+    if (argc < mandatoryQuantity) {
+        showUsage();
+        exit(1);
     }
-    train_set = argv[2];
-    test_set = argv[3];
-    classif = argv[4];
+    
+    for (int i = 1; i < mandatoryQuantity; i+=2) {
+        std::string argument = argv[i];
+        if (argument == "-m") {
+            int methodId = strtol(argv[i+1], NULL, 10);
+            if (methodId < 0 || methodId > 1) {
+                std::cout << "Unknown method: " << method << "\n";
+                showUsage();
+                exit(1);
+            }
+            method = methods[methodId];
+        } else if (argument == "-i") {
+            train_set = argv[i+1];
+        } else if (argument == "-q") {
+            test_set = argv[i+1];
+        } else if (argument == "-o") {
+            classif = argv[i+1];
+        } else {
+            std::cout << "Unknown option: " << argument << "\n";
+            showUsage();
+            exit(1);
+        }
+    }
+
+    // Setting default values
+    mode = modes[2];
+    base_change_matrix_path = "data/base_change.csv";
+    X_matrix_path = "data/x_matrix.csv";
+    Y_matrix_path = "data/y_matrix.csv";
+
 
     // Mode for the application: 0 for only training,
     // 1 for only predict, 2 for train+predict.
-    if(argc >5){
-        mode = argv[5];
-        if (strcmp(argv[5], "0") == 0) {
+    int modeIndex = mandatoryQuantity;
+    if(argc > mandatoryQuantity){
+        mode = argv[modeIndex];
+        if (strcmp(argv[modeIndex], "0") == 0) {
             mode = modes[0];
-        } else if (strcmp(argv[5], "1") == 0) {
+        } else if (strcmp(argv[modeIndex], "1") == 0) {
             mode = modes[1];
-        } else if (strcmp(argv[5], "2") == 0) {
+        } else if (strcmp(argv[modeIndex], "2") == 0) {
             mode = modes[2];
         }
 
         // Paths where to save the matrix that are created in training (in train mode - 0),
         // or where to load them from (in predict mode - 1).
         // Can be whatever for mode 2 (train+predict at once - 2)
-        base_change_matrix_path = argv[6];
-        X_matrix_path = argv[7];
-        Y_matrix_path = argv[8];
-    } else{
-        mode = modes[2];
+        base_change_matrix_path = argv[modeIndex + 1];
+        X_matrix_path = argv[modeIndex + 2];
+        Y_matrix_path = argv[modeIndex + 3];
     }
 }
 
