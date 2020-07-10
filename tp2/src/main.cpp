@@ -147,7 +147,7 @@ Digit recognition using KNN and PCA.
 Arguments:
     -m METHOD    Specify 0 for knn or 1 for knn and pca
     -i TRAIN     Path to the training set.
-    -t TEST      Path to the test set.
+    -q TEST      Path to the test set.
     -o OUTPUT    Path where the classification results will be written to.
     mode_of_execution = 0 : train
                         1 : predict
