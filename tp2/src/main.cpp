@@ -147,7 +147,7 @@ Digit recognition using KNN and PCA.
 Arguments:
     -m METHOD    Specify 0 for knn or 1 for knn and pca
     -i TRAIN     Path to the training set.
-    -i TEST      Path to the test set.
+    -t TEST      Path to the test set.
     -o OUTPUT    Path where the classification results will be written to.
     )USAGE";
     std::cout << usage << "\n"; 
@@ -245,7 +245,7 @@ void print_info(double time) {
     unsigned int percentage = (unsigned int) PERCENTAGE_OF_TRAIN_CASES * 100;
     std::cout << "------------------------°------------------------" << std::endl;
     std::cout << "Finished in: " << (unsigned int) time / 1000 << " seconds." << std::endl;
-    std::cout << "Method used in trainig: " << method << std::endl;
+    std::cout << "Method used in training: " << method << std::endl;
     std::cout << "Number of neighbors used in KNN: " << N_NEIGHBORS << std::endl;
     std::cout << "Number of components used in PCA: " << N_COMPONENTS << std::endl;
     std::cout << "Number of iterations used in power iteration: " << N_ITERATIONS << std::endl;
