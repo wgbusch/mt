@@ -140,7 +140,7 @@ int main(int argc, char **argv) {
 
 void showUsage(){
     const std::string usage = R"USAGE(
-usage: ./tp2 -m METHOD -i TRAIN -q TEST -o OUTPUT
+usage: ./tp2 -m METHOD -i TRAIN -q TEST -o OUTPUT [mode_of_execution base_change_matrix_path X_matrix_path Y_matrix_path]
 
 Digit recognition using KNN and PCA.
 
@@ -149,6 +149,12 @@ Arguments:
     -i TRAIN     Path to the training set.
     -t TEST      Path to the test set.
     -o OUTPUT    Path where the classification results will be written to.
+    mode_of_execution = 0 : train
+                        1 : predict
+                        2: train+predict
+    base_change_matrix_path : ex. change_base_matrix.csv.
+    X_matrix_path : ex. X.csv.
+    Y_matrix_path : ex. Y.csv.
     )USAGE";
     std::cout << usage << "\n"; 
 }
@@ -201,6 +207,11 @@ void get_arguments(int argc, char **argv) {
             mode = modes[1];
         } else if (strcmp(argv[modeIndex], "2") == 0) {
             mode = modes[2];
+        }
+
+        if(argc < 11){
+            showUsage();
+            exit(1);
         }
 
         // Paths where to save the matrix that are created in training (in train mode - 0),
