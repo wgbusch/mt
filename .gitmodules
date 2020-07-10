@@ -4,3 +4,9 @@
 [submodule "tp2/pybind11"]
 	path = tp2/pybind11
 	url = https://github.com/pybind/pybind11
+[submodule "tp3/pybind11"]
+	path = tp3/pybind11
+	url = https://github.com/pybind/pybind11.git
+[submodule "tp3/eigen"]
+	path = tp3/eigen
+	url = https://gitlab.com/libeigen/eigen.git
