@@ -25,8 +25,9 @@ void LinearRegression::fit(Matrix X, Matrix y)
 {
     // Creamos matriz de 1s y reemplazamos las primeras m columnas con X
     // TODO: hacer algo mas eficiente
-    auto A = MatrixXd::Ones(X.rows(), X.cols()+1);// nxm+1
-    A << X;
+    auto A = Matrix(X.rows(), X.cols()+1);// nxm+1
+    auto ones = MatrixXd::Ones(X.rows(), 1);
+    A << X, ones;
 
     // Ecuaciones normales
     auto AtA = A.transpose() * A;// m+1xn * nxm+1 = m+1xm+1
@@ -44,8 +45,9 @@ void LinearRegression::fit(Matrix X, Matrix y)
 Matrix LinearRegression::predict(Matrix X)
 {
     //Agregamos una feature "independiente"
-    auto A = MatrixXd::Ones(X.rows(), X.cols()+1); //l x m+1
-    A << X;
+    auto A = Matrix(X.rows(), X.cols()+1);// nxm+1
+    auto ones = MatrixXd::Ones(X.rows(), 1);
+    A << X,ones;
 
     return A * this->model;// lxm+1 * m+1x1 = lx1
 }
