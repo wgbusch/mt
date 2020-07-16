@@ -1,7 +1,3 @@
-//
-// Created by pachi on 5/6/19.
-//
-
 #include <iostream>
 #include <sys/time.h>
 #include "pca.h"
