@@ -1,0 +1,96 @@
+testeamos k-fold con k = 
+3
+y cantidad de vecinos = 
+1
+ 
+iteracion de k-fold: 
+1
+0.9636428571428571
+0.9636187066746195
+iteracion de k-fold: 
+2
+0.9662142857142857
+0.9661632072738434
+iteracion de k-fold: 
+3
+0.9645
+0.9644508113298192
+
+
+###############################
+
+testeamos k-fold con k = 
+3
+y cantidad de vecinos = 
+5
+ 
+iteracion de k-fold: 
+1
+0.9657857142857142
+0.9657443263262994
+iteracion de k-fold: 
+2
+0.9648571428571429
+0.9647644010045733
+iteracion de k-fold: 
+3
+0.9622142857142857
+0.9621244849092814
+
+##############################
+
+testeamos k-fold con k = 3
+y cantidad de vecinos = 15
+ 
+iteracion de k-fold: 
+1
+acc = 0.9577857142857142
+f1_score = 0.9577092872784615
+iteracion de k-fold: 
+2
+acc = 0.9558571428571428
+f1_score = 0.9557879133911049
+iteracion de k-fold: 
+3
+acc = 0.955
+f1_score = 0.9549486222396798
+
+#############################
+
+testeamos k-fold con k = 3
+y cantidad de vecinos = 40
+ 
+iteracion de k-fold: 
+1
+acc = 0.9418571428571428
+f1_score = 0.9418059791085278
+iteracion de k-fold: 
+2
+acc = 0.9416428571428571
+f1_score = 0.9415744036936425
+iteracion de k-fold: 
+3
+acc = 0.9420714285714286
+f1_score = 0.9419880422757255
+
+##############################
+
+testeamos k-fold con k = 
+3
+y cantidad de vecinos = 
+100
+ 
+iteracion de k-fold: 
+1
+0.9231428571428572
+0.9231041914291321
+iteracion de k-fold: 
+2
+0.9252142857142858
+0.9252710320796841
+iteracion de k-fold: 
+3
+0.923
+0.9231445672114926
+
+###############################

@@ -1,0 +1,178 @@
+testeamos k-fold con k = 
+7
+y cantidad de vecinos = 
+1
+ 
+iteracion de k-fold: 
+1
+0.9661666666666666
+0.9661480465057699
+iteracion de k-fold: 
+2
+0.967
+0.9669666912180281
+iteracion de k-fold: 
+3
+0.9696666666666667
+0.9695932063661782
+iteracion de k-fold: 
+4
+0.9703333333333334
+0.9703158408465582
+iteracion de k-fold: 
+5
+0.9671666666666666
+0.9671309029664025
+iteracion de k-fold: 
+6
+0.9703333333333334
+0.9702951124476721
+iteracion de k-fold: 
+7
+0.9628333333333333
+0.962767101480613
+
+#####################
+
+testeamos k-fold con k = 
+7
+y cantidad de vecinos = 
+5
+ 
+iteracion de k-fold: 
+1
+0.9703333333333334
+0.9702871556974321
+iteracion de k-fold: 
+2
+0.9618333333333333
+0.9618458167689319
+iteracion de k-fold: 
+3
+0.968
+0.9678911783047315
+iteracion de k-fold: 
+4
+0.9661666666666666
+0.9660867851440553
+iteracion de k-fold: 
+5
+0.9638333333333333
+0.9637659503014355
+iteracion de k-fold: 
+6
+0.9693333333333334
+0.9692641125559628
+iteracion de k-fold: 
+7
+0.9701666666666666
+0.9700995333894478
+
+####################
+
+testeamos k-fold con k = 
+7
+y cantidad de vecinos = 
+15
+ 
+iteracion de k-fold: 
+1
+0.9583333333333334
+0.9582697175548742
+iteracion de k-fold: 
+2
+0.96
+0.9599876092367712
+iteracion de k-fold: 
+3
+0.9605
+0.960434112527639
+iteracion de k-fold: 
+4
+0.9611666666666666
+0.9610672316467709
+iteracion de k-fold: 
+5
+0.9613333333333334
+0.9612694726232861
+iteracion de k-fold: 
+6
+0.9593333333333334
+0.9592854705795996
+iteracion de k-fold: 
+7
+0.9603333333333334
+0.9602615941265602
+
+#####################
+
+testeamos k-fold con k = 
+7
+y cantidad de vecinos = 
+40
+ 
+iteracion de k-fold: 
+1
+0.947
+0.9469405596188093
+iteracion de k-fold: 
+2
+0.943
+0.942848792849268
+iteracion de k-fold: 
+3
+0.9493333333333334
+0.949244939904099
+iteracion de k-fold: 
+4
+0.9481666666666667
+0.9481615168991578
+iteracion de k-fold: 
+5
+0.9525
+0.9524806399911069
+iteracion de k-fold: 
+6
+0.9463333333333334
+0.9462797291850437
+iteracion de k-fold: 
+7
+0.9436666666666667
+0.9435244380797909
+
+#####################
+
+testeamos k-fold con k = 
+7
+y cantidad de vecinos = 
+100
+ 
+iteracion de k-fold: 
+1
+0.9328333333333333
+0.9330097389559585
+iteracion de k-fold: 
+2
+0.9303333333333333
+0.9304122409621003
+iteracion de k-fold: 
+3
+0.9285
+0.9283990126750349
+iteracion de k-fold: 
+4
+0.9316666666666666
+0.9315687680759389
+iteracion de k-fold: 
+5
+0.9328333333333333
+0.9327127360796337
+iteracion de k-fold: 
+6
+0.9273333333333333
+0.9275127295136666
+iteracion de k-fold: 
+7
+0.9303333333333333
+0.9301957423602465
+
