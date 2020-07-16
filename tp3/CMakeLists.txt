@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.12)
-project(tp2)
+project(tp3)
 
 set (CMAKE_CXX_STANDARD 14)
 set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall")
@@ -46,22 +46,22 @@ message(CMAKE_INSTALL_PREFIX = "${CMAKE_INSTALL_PREFIX}")
 install(TARGETS metnum DESTINATION ${CMAKE_INSTALL_PREFIX}/notebooks)
 
 # # Crear un binario para testing manteniendo las dependencias de python por separado
-# add_executable(tp2
-#         src/main.cpp
-#         src/knn.cpp
-#         src/pca.cpp
-#         src/eigen.cpp)
+# add_executable(tp3
+#         src/linear_regression.cpp
+#         src/main_pybind.cpp
+#         src/metnum.cpp
+#         src/main.cpp)
 
 
-# si se quiere hacer un ejecutable "tp2" que incluya pybind11, utilizar las
+# si se quiere hacer un ejecutable "tp3" que incluya pybind11, utilizar las
 # siguientes 3 instrucciones de cmake.
 
 #include_directories(pybind11/include)
 
-#add_executable(tp2_pybind
-#        src/main_pybind.cpp
-#        src/knn.cpp
-#        src/pca.cpp
-#        src/eigen.cpp)
+#add_executable(tp3_pybind
+#         src/linear_regression.cpp
+#         src/main_pybind.cpp
+#         src/metnum.cpp
+#         src/main.cpp)
 #
-#target_link_libraries(tp2_pybind PRIVATE pybind11::embed)
+#target_link_libraries(tp3_pybind PRIVATE pybind11::embed)
