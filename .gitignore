@@ -1,6 +1,7 @@
 *.out
 *.o
 **/*.o
+*.so
 **/.dps
 src/.idea
 src/cmake-build-debug/
