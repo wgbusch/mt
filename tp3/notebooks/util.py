@@ -3,6 +3,7 @@ Utilities for experimenting with dataframes
 Just put "import util" on our notebooks
 '''
 import metnum
+import math
 from sklearn.metrics import mean_squared_error, mean_squared_log_error
 import seaborn as sns
 
